@@ -95,6 +95,10 @@ namespace Quiz
         {
             // TODO: Save user credentials
             UIEvents.MainMenuShown?.Invoke();
+            UniTask.Void(async () =>
+            {
+                await SupabaseService.Instance.GetProfile();
+            });
         }
     }
 }

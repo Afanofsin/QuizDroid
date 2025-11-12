@@ -254,6 +254,10 @@ PrefabInstance:
       value: SequenceManager
       objectReference: {fileID: 0}
     - target: {fileID: 8602281562583695954, guid: c06a7823af133454ab06afa60696f01d, type: 3}
+      propertyPath: m_LoadScreenTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602281562583695954, guid: c06a7823af133454ab06afa60696f01d, type: 3}
       propertyPath: m_PreloadedAssets.Array.size
       value: 7
       objectReference: {fileID: 0}

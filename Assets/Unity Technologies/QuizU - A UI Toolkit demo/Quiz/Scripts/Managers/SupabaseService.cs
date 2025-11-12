@@ -8,6 +8,7 @@ using Supabase.Gotrue;
 using Supabase.Gotrue.Exceptions;
 using Client = Supabase.Client;
 using Supabase;
+using JetBrains.Annotations;
 
 public class SupabaseService : MonoBehaviour
 {
@@ -91,7 +92,33 @@ public class SupabaseService : MonoBehaviour
             return;
         }
     }
+
+    public async UniTask<Profile> GetProfile()
+    {
+        var user = _supabase.Auth.CurrentUser;
+        Debug.Log($"{user.Id}");
+        var result = await _supabase.From<Profile>()
+                    .Where(p => p.Id == user.Id)
+                    .Get();
+        Profile profile = result.Models[0];
+        return profile;
+    }
     
+    public async UniTask<bool> UpdateProfile(Profile profile)
+    {
+        try
+        {
+            await _supabase.From<Profile>()
+                .Update(profile);
+            return true;
+        }
+        catch(Exception e)
+        {
+            Debug.LogError($"Failed to update profile: {e.Message}");
+            return false;
+        }
+    }
+
     public async UniTask LogOut()
     {
         await _supabase.Auth.SignOut().AsUniTask();
