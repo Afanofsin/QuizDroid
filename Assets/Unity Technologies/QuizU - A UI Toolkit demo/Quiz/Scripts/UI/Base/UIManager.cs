@@ -95,6 +95,7 @@ namespace Quiz
 
             // Pair GameEvents with methods to Show each screen
             UIEvents.SplashScreenShown += UIEvents_SplashScreenShown;
+            UIEvents.AuthScreenShown += UIEvents_AuthScreenShown;
             UIEvents.MainMenuShown += UIEvents_MainMenuShown;
             UIEvents.SettingsShown += UIEvents_SettingsShown;
             UIEvents.ShopShown += UIEvents_ShopShown;
@@ -113,6 +114,7 @@ namespace Quiz
             SceneEvents.PreloadCompleted -= SceneEvents_PreloadCompleted;
 
             UIEvents.SplashScreenShown -= UIEvents_SplashScreenShown;
+            UIEvents.AuthScreenShown -= UIEvents_AuthScreenShown;
             UIEvents.MainMenuShown -= UIEvents_MainMenuShown;
             UIEvents.SettingsShown -= UIEvents_SettingsShown;
             UIEvents.ShopShown -= UIEvents_ShopShown;
@@ -138,6 +140,15 @@ namespace Quiz
         private void SceneEvents_PreloadCompleted()
         {
             Show(m_StartScreen, false);
+        }
+
+        private void UIEvents_AuthScreenShown()
+        {
+            m_CurrentScreen = m_StartScreen;
+
+            HideScreens();
+            m_History.Push(m_StartScreen);
+            m_StartScreen.Show();
         }
 
         // Clear the History and make the HomeScreen (MainMenu) the only View
@@ -242,6 +253,8 @@ namespace Quiz
                 m_HomeScreen,
                 m_SettingsScreen,
                 m_ShopScreen,
+                m_ProfileScreen,
+                m_LeaderboardScreen,
                 m_LevelSelectionScreen,
                 m_GameScreen,
                 m_PauseScreen,

@@ -6,19 +6,20 @@ public class UnityAuthListener : MonoBehaviour
 {
     public void SessionListener(IGotrueClient<User, Session> sender, Constants.AuthState newState)
     {
-        if (sender.CurrentUser?.Email == null)
-			LoggedInEmailAddress.text = "No user logged in";
+		if (sender.CurrentUser?.Email == null)
+			Debug.Log($"No user logged in");
 		else
 		{
-			LoggedInEmailAddress.text = $"Logged in as {sender.CurrentUser.Email}";
+			Debug.Log($"Logged in as {sender.CurrentUser.Email}");
 		}
 
 		switch (newState)
 		{
 			case Constants.AuthState.SignedIn:
-				Debug.Log("Signed In");
+				SupabaseEvents.OnLoginSuccess?.Invoke(sender.CurrentSession);
 				break;
 			case Constants.AuthState.SignedOut:
+				SupabaseEvents.OnLogout?.Invoke();
 				Debug.Log("Signed Out");
 				break;
 			case Constants.AuthState.UserUpdated:

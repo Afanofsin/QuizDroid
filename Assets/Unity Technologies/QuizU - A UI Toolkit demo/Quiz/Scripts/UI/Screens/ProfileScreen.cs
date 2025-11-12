@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Quiz;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -21,12 +22,12 @@ public class ProfileScreen : UIScreen
 
     private void SubscribeToEvents()
     {
-        
+        SupabaseEvents.OnLogout += HandleLogout;
     }
 
     private void UnsubscribeFromEvents()
     {
-        
+        SupabaseEvents.OnLogout -= HandleLogout;
     }
     // Find and set references to UI elements
     private void SetVisualElements()
@@ -38,11 +39,24 @@ public class ProfileScreen : UIScreen
     private void RegisterCallbacks()
     {
         m_EventRegistry.RegisterCallback<ClickEvent>(m_BackButton, evt => CloseWindow());
-        m_EventRegistry.RegisterCallback<ClickEvent>(m_CloseButton, evt => CloseWindow());
+        m_EventRegistry.RegisterCallback<ClickEvent>(m_CloseButton, evt => UniTask.Void (async () =>
+        {
+            await LogOut();
+        }));
     }
 
     private void CloseWindow()
     {
         UIEvents.ScreenClosed?.Invoke();
+    }
+
+    private async UniTask LogOut()
+    {
+        await SupabaseService.Instance.LogOut();
+    }
+
+    private void HandleLogout()
+    {
+        UIEvents.AuthScreenShown?.Invoke();
     }
 }

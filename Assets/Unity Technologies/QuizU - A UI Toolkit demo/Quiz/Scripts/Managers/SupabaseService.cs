@@ -39,6 +39,7 @@ public class SupabaseService : MonoBehaviour
             _networkStatus.Client = (Supabase.Gotrue.Client)_supabase.Auth;
 
             _supabase.Auth.SetPersistence(new UnitySession());
+            _supabase.Auth.AddStateChangedListener(Listener.SessionListener);
 
             await _supabase.InitializeAsync();
         }
@@ -57,9 +58,7 @@ public class SupabaseService : MonoBehaviour
                 SupabaseEvents.OnRegistrationFail?.Invoke("Registration Failed.");
                 return;
             }
-
             Debug.Log($"Registration success. User ID: {signUp.User.Id}");
-            SupabaseEvents.OnRegistrationSuccess?.Invoke(signUp);
         }
         catch (Exception exception)
         {
@@ -84,7 +83,6 @@ public class SupabaseService : MonoBehaviour
             }
 
             Debug.Log($"Login success. User ID: {signIn.User.Id}");
-            SupabaseEvents.OnLoginSuccess?.Invoke(signIn);
         }
         catch (Exception exception)
         {
@@ -94,6 +92,11 @@ public class SupabaseService : MonoBehaviour
         }
     }
     
+    public async UniTask LogOut()
+    {
+        await _supabase.Auth.SignOut().AsUniTask();
+        Debug.Log($"User Signed Out");
+    }
 
     private void OnApplicationQuit()
     {       

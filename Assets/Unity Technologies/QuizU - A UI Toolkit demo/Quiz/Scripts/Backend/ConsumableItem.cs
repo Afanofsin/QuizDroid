@@ -12,6 +12,8 @@ public class ConsumableItem : IIAPItem
     public override void Reward()
     {
         Debug.Log($"Yay!");
+
+        // TODO: Server Request update profile
     }
 
 }

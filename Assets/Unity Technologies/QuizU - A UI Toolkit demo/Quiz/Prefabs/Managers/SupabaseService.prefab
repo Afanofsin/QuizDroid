@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7941400030485721008}
   - component: {fileID: 4784979803340452598}
   - component: {fileID: 9109294074885419871}
+  - component: {fileID: 9026409651571904548}
   m_Layer: 0
   m_Name: SupabaseService
   m_TagString: Untagged
@@ -45,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11b11971e57bae42b4d0fa61cf0adf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Listener: {fileID: 9026409651571904548}
 --- !u!114 &9109294074885419871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,5 +57,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 889eb338f1f3e48289bf1e74b9d19684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9026409651571904548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6710777850414973409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09c3257079679045903a868c1166785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -8,4 +8,5 @@ public static class SupabaseEvents
     public static Action<Session> OnRegistrationSuccess;
     public static Action<string> OnLoginFail;
     public static Action<string> OnRegistrationFail;
+    public static Action OnLogout;
 }

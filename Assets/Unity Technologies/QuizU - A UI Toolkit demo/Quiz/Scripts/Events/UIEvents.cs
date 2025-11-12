@@ -15,6 +15,8 @@ namespace Quiz
 
         public static Action SplashScreenShown;
 
+        public static Action AuthScreenShown;
+
         // Show the Main Menu selection (Settings, Level Selection)
         public static Action MainMenuShown;
 

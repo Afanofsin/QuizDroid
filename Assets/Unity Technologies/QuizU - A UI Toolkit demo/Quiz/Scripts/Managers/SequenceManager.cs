@@ -131,6 +131,12 @@ namespace Quiz
             // EventLinks listen for the UI/game event messages to activate the transition to the next state
 
             // This implementation uses a wrapper around the event to make easier to register/unregister the EventLinks
+            ActionWrapper authScreenShownWrapper = new ActionWrapper
+            {
+                Subscribe = handler => UIEvents.AuthScreenShown += handler,
+                Unsubscribe = handler => UIEvents.AuthScreenShown -= handler
+            };
+
             ActionWrapper mainMenuShownWrapper = new ActionWrapper
             {
                 Subscribe = handler => UIEvents.MainMenuShown += handler,
@@ -206,6 +212,8 @@ namespace Quiz
             m_MainMenuState.AddLink(new EventLink(shopShownWrapper, m_MenuShopState));
             m_MainMenuState.AddLink(new EventLink(leaderboardShownWrapper, m_MenuLeaderboardState));
             m_MainMenuState.AddLink(new EventLink(profileShownWrapper, m_MenuProfileState));
+            
+            m_MenuProfileState.AddLink(new EventLink(authScreenShownWrapper, m_StartScreenState));
 
             m_MenuSettingsState.AddLink(new EventLink(screenClosedWrapper, m_MainMenuState));
 
