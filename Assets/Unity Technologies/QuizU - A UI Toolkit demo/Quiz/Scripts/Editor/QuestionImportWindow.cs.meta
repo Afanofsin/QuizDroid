@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3ce92680852164d41b165043bbb7c65c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/Quiz/Scripts/Editor/QuestionImportWindow.cs
+  uploadId: 752869

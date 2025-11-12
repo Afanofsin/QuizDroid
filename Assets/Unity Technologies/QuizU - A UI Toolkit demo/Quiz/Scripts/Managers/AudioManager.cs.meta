@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8a250848c50a9477a9032c0c2dd8ddef
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 100
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/Quiz/Scripts/Managers/AudioManager.cs
+  uploadId: 752869

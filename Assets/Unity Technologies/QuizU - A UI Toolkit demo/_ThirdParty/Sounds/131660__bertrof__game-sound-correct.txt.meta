@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3aa25789c8b1f449c820aa49c95573fa
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/_ThirdParty/Sounds/131660__bertrof__game-sound-correct.txt
+  uploadId: 752869

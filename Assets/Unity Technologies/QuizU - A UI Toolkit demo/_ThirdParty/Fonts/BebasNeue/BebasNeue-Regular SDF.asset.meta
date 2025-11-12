@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c34e0df0d97e14881a45e65ea8a207f8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/_ThirdParty/Fonts/BebasNeue/BebasNeue-Regular
+    SDF.asset
+  uploadId: 752869

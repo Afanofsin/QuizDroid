@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a330566e0d68b4ba8a49984c4ffe15d8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/Quiz/Scripts/UI/Screens/GameScreen/ResponseHighlighter.cs
+  uploadId: 752869

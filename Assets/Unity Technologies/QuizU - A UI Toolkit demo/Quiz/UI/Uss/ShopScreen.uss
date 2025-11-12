@@ -1,0 +1,24 @@
+:root {
+}
+
+.buy-button {
+    margin-top: 5%;
+    width: 80%;
+    height: 20%;
+}
+
+.item-image {
+    flex-grow: 0;
+    height: 60%;
+    margin-bottom: -15%;
+    padding-bottom: 0%;
+    width: 85%;
+    background-image: url("project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Images/coinIcon.png?fileID=2800000&guid=851a978056dab5848ba778e189fe9a2f&type=3#coinIcon");
+    background-size: 50% 50%;
+}
+
+.item-label {
+    margin-top: 4%;
+    font-size: 250%;
+    -unity-font-style: bold;
+}

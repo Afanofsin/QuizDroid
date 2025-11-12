@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2ec130165ceb34f9787f8e7d97cec14c
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/Quiz/Prefabs/Cameras/TempCamera.prefab
+  uploadId: 752869

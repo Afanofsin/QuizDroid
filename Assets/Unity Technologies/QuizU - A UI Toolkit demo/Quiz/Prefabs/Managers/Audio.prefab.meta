@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f58da589a70a84598933493afac40680
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/Quiz/Prefabs/Managers/Audio.prefab
+  uploadId: 752869

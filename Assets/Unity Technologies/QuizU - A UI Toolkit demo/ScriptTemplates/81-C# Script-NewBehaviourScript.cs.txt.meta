@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fd67a825df0b9459ba922d64e6361582
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/ScriptTemplates/81-C#
+    Script-NewBehaviourScript.cs.txt
+  uploadId: 752869

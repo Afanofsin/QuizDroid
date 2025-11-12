@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2e5c88e8c5a4944b581aaf7bf8cc9a6c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/Quiz/Scripts/UI/Screens/GameScreen/ProgressDisplay.cs
+  uploadId: 752869

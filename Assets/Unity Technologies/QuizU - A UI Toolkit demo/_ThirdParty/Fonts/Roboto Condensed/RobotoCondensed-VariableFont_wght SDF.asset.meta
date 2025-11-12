@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 860ca39f66b4a41988415d473a5549d5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/_ThirdParty/Fonts/Roboto
+    Condensed/RobotoCondensed-VariableFont_wght SDF.asset
+  uploadId: 752869

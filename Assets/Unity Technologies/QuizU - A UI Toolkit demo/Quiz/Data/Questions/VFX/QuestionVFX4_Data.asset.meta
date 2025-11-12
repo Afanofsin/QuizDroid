@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: deb7e532801bd4f018e15c3487f74729
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/Quiz/Data/Questions/VFX/QuestionVFX4_Data.asset
+  uploadId: 752869

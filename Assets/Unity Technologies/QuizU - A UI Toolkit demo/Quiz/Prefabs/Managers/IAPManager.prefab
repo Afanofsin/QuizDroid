@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6371868055169446240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8096084635366641257}
+  - component: {fileID: 664660868657539711}
+  - component: {fileID: 8398096564038755626}
+  m_Layer: 0
+  m_Name: IAPManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8096084635366641257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371868055169446240}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &664660868657539711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371868055169446240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e74b5ca47a84b6428b19b8d80da4e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopitems:
+  - rid: 5576796809372107032
+  - rid: 5576796809372107033
+  - rid: 5576796809372107034
+  references:
+    version: 2
+    RefIds:
+    - rid: 5576796809372107032
+      type: {class: ConsumableItem, ns: , asm: Assembly-CSharp}
+      data:
+        <Id>k__BackingField: coin_100
+        <Description>k__BackingField: Gives coins to the player
+        <Price>k__BackingField: 
+        <Name>k__BackingField: 100 Coins
+    - rid: 5576796809372107033
+      type: {class: NonConsumableItem, ns: , asm: Assembly-CSharp}
+      data:
+        <Id>k__BackingField: ads_remove
+        <Description>k__BackingField: Removes Ads from Application
+        <Price>k__BackingField: 
+        <Name>k__BackingField: 
+    - rid: 5576796809372107034
+      type: {class: SubscriptionItem, ns: , asm: Assembly-CSharp}
+      data:
+        <Id>k__BackingField: premium_7
+        <Description>k__BackingField: Gives premium account access for 7 days
+        <Price>k__BackingField: 
+        <Name>k__BackingField: 
+        <Duration>k__BackingField: 7
+--- !u!114 &8398096564038755626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371868055169446240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea56b8c7a755349868431d684f0967fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  note: Script that manages all IAP workflow.

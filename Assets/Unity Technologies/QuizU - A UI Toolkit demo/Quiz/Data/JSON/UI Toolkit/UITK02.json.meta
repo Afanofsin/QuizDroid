@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b13c0bb3a63aa41658e52e6dc41cafcd
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/Quiz/Data/JSON/UI
+    Toolkit/UITK02.json
+  uploadId: 752869

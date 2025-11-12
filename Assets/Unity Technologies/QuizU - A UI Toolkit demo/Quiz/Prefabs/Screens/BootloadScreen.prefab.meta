@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e5e2eca32833940b791a1262d19dec02
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/Quiz/Prefabs/Screens/BootloadScreen.prefab
+  uploadId: 752869

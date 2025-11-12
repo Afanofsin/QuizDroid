@@ -1,0 +1,28 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/UI/Uss/MenuScreens.uss?fileID=7433441132597879392&amp;guid=cd0f7ad5384494cd9bd2336a342c02b5&amp;type=3#MenuScreens" />
+    <Style src="project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/UI/Uss/SettingsScreen.uss?fileID=7433441132597879392&amp;guid=2aca5532fde4441aaa4b8320ef3d97d2&amp;type=3#SettingsScreen" />
+    <Style src="project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/UI/Uss/Buttons.uss?fileID=7433441132597879392&amp;guid=59a47f2144b8a4a0f86bc110907e20cb&amp;type=3#Buttons" />
+    <engine:VisualElement name="leaderboard__container" picking-mode="Ignore" style="width: 100%; height: 100%; position: absolute; background-color: rgba(0, 127, 217, 0.87); align-items: center; justify-content: center; top: -1px; left: 0;">
+        <engine:VisualElement name="leaderboard__background" style="background-image: url(&quot;project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Images/Abstract-background-white-12.jpg?fileID=21300000&amp;guid=b7b45fbf62b9341189a8ca5f5ddef364&amp;type=3#Abstract-background-white-12&quot;); width: 100%; height: 100%; position: absolute; -unity-background-image-tint-color: rgba(0, 120, 53, 0.77); top: -1px; left: 0;" />
+        <engine:Label text="Settings" display-tooltip-when-elided="true" name="screen-label" class="screen-label" />
+        <engine:Button text="◀BACK" display-tooltip-when-elided="true" name="back-button" tooltip="Return to main menu" class="back-button" />
+        <engine:VisualElement name="leaderboard__group" picking-mode="Ignore" style="width: 100%; height: 100%; -unity-text-align: upper-center; align-items: center; justify-content: center; -unity-background-scale-mode: scale-to-fit; -unity-background-image-tint-color: rgb(255, 255, 255);">
+            <engine:Label text="LEADERBOARD&#10;" display-tooltip-when-elided="true" name="leaderboard__label" style="-unity-font-definition: url(&quot;project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Fonts/Roboto/Roboto-Medium%20SDF.asset?fileID=11400000&amp;guid=db5974fdd47364381a7edc91a9df9b2f&amp;type=2#Roboto-Medium SDF&quot;); font-size: 46px; color: rgb(26, 26, 26); top: 0; letter-spacing: 25px; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0);" />
+            <engine:VisualElement name="leaderboard__panel" style="height: 70%; width: 80%; border-left-color: rgb(26, 26, 26); border-right-color: rgb(26, 26, 26); border-top-color: rgb(26, 26, 26); border-bottom-color: rgb(26, 26, 26); border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 3%; padding-right: 3%; padding-top: 5%; padding-bottom: 2%; align-items: center; top: 0; background-color: rgb(214, 214, 214);">
+                <engine:Button text="&#10;" display-tooltip-when-elided="true" name="leaderboard__close-button" class="close-button" style="border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); background-color: rgba(188, 188, 188, 0); background-image: url(&quot;project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/Textures/Icons/Circle256.png?fileID=2800000&amp;guid=f4e41b6527ba545629b1d69d0fa041a4&amp;type=3#Circle256&quot;); -unity-background-image-tint-color: rgb(0, 250, 154); width: 4%; height: 8%; top: -5%; right: -2%;">
+                    <engine:VisualElement name="shop__close-button-icon" picking-mode="Ignore" style="width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/Textures/Icons/QuitIcon.png?fileID=21300000&amp;guid=6ba9ae3c4c95a48ba8b46ef8b35066d5&amp;type=3#QuitIcon&quot;); -unity-background-scale-mode: scale-and-crop; scale: 2.5 2.5; -unity-background-image-tint-color: rgb(26, 26, 26); background-repeat: no-repeat no-repeat;" />
+                </engine:Button>
+                <engine:VisualElement name="leaderboard__close-button" class="close-button" style="display: none;" />
+                <engine:ListView name="leaderboard-list" 
+                data-source="project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/Scripts/Testing/ExampleBinding.asset?fileID=11400000&amp;guid=d6db40480fa83044a8199ed8a7c493fc&amp;type=2#ExampleBinding" 
+                binding-source-selection-mode="AutoAssign" virtualization-method="DynamicHeight"
+                item-template="project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/UI/Uxml/Listuxml/LeaderEntry.uxml?fileID=9197481963319205126&amp;guid=77bd13f472695ef49a1d489ca0fc381c&amp;type=3#LeaderEntry" 
+                style="width: 100%; height: 100%;">
+                    <Bindings>
+                        <engine:DataBinding property="itemsSource" data-source-path="items" binding-mode="ToTarget" />
+                    </Bindings>
+                </engine:ListView>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

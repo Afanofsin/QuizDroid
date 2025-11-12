@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b1b0d1011b4314ce08bf0cc4d4a3330b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/Quiz/Scripts/UI/Screens/GameScreen/QuestionDisplay.cs
+  uploadId: 752869

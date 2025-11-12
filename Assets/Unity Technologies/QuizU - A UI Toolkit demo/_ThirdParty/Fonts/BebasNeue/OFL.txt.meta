@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9e950b2536e3b40b88ba6a5b483d692f
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/_ThirdParty/Fonts/BebasNeue/OFL.txt
+  uploadId: 752869

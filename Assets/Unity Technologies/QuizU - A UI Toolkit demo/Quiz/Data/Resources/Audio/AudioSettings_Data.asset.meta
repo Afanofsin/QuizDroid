@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 873ff95d58c5e42f9ae895eb06bc66f5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/Quiz/Data/Resources/Audio/AudioSettings_Data.asset
+  uploadId: 752869

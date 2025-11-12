@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a05db48b242424334b01c5f01f15bf83
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268492
+  packageName: QuizU - A UI toolkit sample
+  packageVersion: 1.2.0
+  assetPath: Assets/Unity Technologies/QuizU - A UI Toolkit demo/Quiz/Data/Questions/ExploreUnity/QuestionEU4_Data.asset
+  uploadId: 752869

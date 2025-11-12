@@ -1,0 +1,37 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/UI/Uss/MenuScreens.uss?fileID=7433441132597879392&amp;guid=cd0f7ad5384494cd9bd2336a342c02b5&amp;type=3#MenuScreens" />
+    <Style src="project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/UI/Uss/SettingsScreen.uss?fileID=7433441132597879392&amp;guid=2aca5532fde4441aaa4b8320ef3d97d2&amp;type=3#SettingsScreen" />
+    <Style src="project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/UI/Uss/Buttons.uss?fileID=7433441132597879392&amp;guid=59a47f2144b8a4a0f86bc110907e20cb&amp;type=3#Buttons" />
+    <Style src="project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/UI/Uss/ShopScreen.uss?fileID=7433441132597879392&amp;guid=e41598c68018ce948b2e8f52584b44a5&amp;type=3#ShopScreen" />
+    <ui:VisualElement name="shop__container" picking-mode="Ignore" style="width: 100%; height: 100%; position: absolute; background-color: rgba(0, 127, 217, 0.87); align-items: center; justify-content: center; top: -1px; left: 0;">
+        <ui:VisualElement name="shop__background" style="background-image: url(&quot;project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Images/Abstract-background-white-12.jpg?fileID=21300000&amp;guid=b7b45fbf62b9341189a8ca5f5ddef364&amp;type=3#Abstract-background-white-12&quot;); width: 100%; height: 100%; position: absolute; -unity-background-image-tint-color: rgba(0, 120, 53, 0.77); top: -1px; left: 0;" />
+        <ui:Label text="Settings" display-tooltip-when-elided="true" name="screen-label" class="screen-label" />
+        <ui:Button text="◀BACK" display-tooltip-when-elided="true" name="back-button" tooltip="Return to main menu" class="back-button" />
+        <ui:VisualElement name="shop__group" picking-mode="Ignore" style="width: 100%; height: 100%; -unity-text-align: upper-center; align-items: center; justify-content: center; -unity-background-scale-mode: scale-to-fit; -unity-background-image-tint-color: rgb(255, 255, 255);">
+            <ui:Label text="SHOP" display-tooltip-when-elided="true" name="shop__label" style="-unity-font-definition: url(&quot;project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Fonts/Roboto/Roboto-Medium%20SDF.asset?fileID=11400000&amp;guid=db5974fdd47364381a7edc91a9df9b2f&amp;type=2#Roboto-Medium SDF&quot;); font-size: 46px; color: rgb(26, 26, 26); top: 0; letter-spacing: 25px; -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0);" />
+            <ui:VisualElement name="shop__panel" style="height: 60%; width: 60%; border-left-color: rgb(26, 26, 26); border-right-color: rgb(26, 26, 26); border-top-color: rgb(26, 26, 26); border-bottom-color: rgb(26, 26, 26); border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 3%; padding-right: 3%; padding-top: 5%; padding-bottom: 2%; align-items: center; top: 0; background-color: rgb(214, 214, 214);">
+                <ui:Button text="&#10;" display-tooltip-when-elided="true" name="shop__close-button" class="close-button" style="border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); background-color: rgba(188, 188, 188, 0); background-image: url(&quot;project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/Textures/Icons/Circle256.png?fileID=2800000&amp;guid=f4e41b6527ba545629b1d69d0fa041a4&amp;type=3#Circle256&quot;); -unity-background-image-tint-color: rgb(0, 250, 154); width: 6%; height: 10%; right: -3.5%; top: -6%;">
+                    <ui:VisualElement name="shop__close-button-icon" picking-mode="Ignore" style="width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/Quiz/Textures/Icons/QuitIcon.png?fileID=21300000&amp;guid=6ba9ae3c4c95a48ba8b46ef8b35066d5&amp;type=3#QuitIcon&quot;); -unity-background-scale-mode: scale-and-crop; scale: 2.5 2.5; -unity-background-image-tint-color: rgb(26, 26, 26); background-repeat: no-repeat no-repeat;" />
+                </ui:Button>
+                <ui:VisualElement name="shop__close-button" class="close-button" style="display: none;" />
+                <ui:VisualElement name="shop__buy-panel" style="flex-grow: 1; width: 105%; height: 100%; flex-direction: row; white-space: nowrap;">
+                    <ui:VisualElement name="shop__buy-cons" style="flex-grow: 1; width: 33%; height: 100%; flex-direction: column; align-items: center; justify-content: flex-start; align-self: auto;">
+                        <ui:VisualElement name="cons-image" class="item-image" />
+                        <ui:Label text="100 Gold Coins" name="cons-label" class="item-label" style="font-size: 35px;" />
+                        <ui:Button text="Button" name="cons-button" class="green-button buy-button" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="shop__buy_uncons" style="flex-grow: 1; width: 33%; height: 100%; flex-direction: column; align-items: center;">
+                        <ui:VisualElement name="noncons-image" class="item-image" style="flex-grow: 0; height: 60%; margin-bottom: -15%; padding-bottom: 0%; width: 85%; background-image: url(&quot;project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Images/noAdsBtn.png?fileID=2800000&amp;guid=491f11e845369164faf9e0e6afb38c1d&amp;type=3#noAdsBtn&quot;); background-size: 50% 50%;" />
+                        <ui:Label text="No Ads" name="noncons-label" class="item-label" style="margin-top: 4%;" />
+                        <ui:Button text="Button" name="noncons-button" class="buy-button green-button" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="shop__buy-sub" style="flex-grow: 1; width: 33%; height: 100%; flex-direction: column; align-items: center;">
+                        <ui:VisualElement name="sub-image" class="item-image" style="flex-grow: 0; height: 60%; margin-bottom: -15%; padding-bottom: 0%; width: 85%; background-image: url(&quot;project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Images/giftIcon.png?fileID=2800000&amp;guid=c1be0c14e3a28b9489361d363e993b29&amp;type=3#giftIcon&quot;); background-size: 50% 50%;" />
+                        <ui:Label text="Premium" name="sub-label" class="item-label" style="margin-top: 4%;" />
+                        <ui:Button text="Button" name="sub-button" class="buy-button green-button" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

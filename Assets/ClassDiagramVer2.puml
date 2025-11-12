@@ -1,0 +1,962 @@
+﻿@startuml
+class QuestionImporterWindow {
+    - OnEnable() : void
+    - SetupUI() : void
+    - ImportJsonFolder() : void
+    - CreateQuestionSOFromJson(jsonData : string, assetName : string) : void
+}
+' QuestionImporterWindow: </summary>
+class QuestionSOEditor {
+    + text : string
+    + image : Sprite
+    + skills : string
+    + shuffleOptions : bool
+    + options : List<AnswerJsonData>
+    + feedbackCorrect : string
+    + feedbackIncorrect : string
+    + text : string
+    + isCorrect : bool
+    - ImportJson() : void
+    - PopulateQuestionDataFromJson(jsonData : string) : void
+}
+class auto {
+}
+class SceneBootstrapper {
+}
+class GameEvents {
+}
+' GameEvents: </summary>
+class LevelSelectionEvents {
+}
+' LevelSelectionEvents: </summary>
+class SceneEvents {
+}
+' SceneEvents: </summary>
+class SettingsEvents {
+}
+' SettingsEvents: </summary>
+class UIEvents {
+}
+' UIEvents: </summary>
+class in {
+    - OnEnable() : void
+    - OnDisable() : void
+    - Start() : void
+    - PlayCorrectSound(message : string) : void
+    - PlayIncorrectSound(message : string) : void
+    - PlayGameWonSound() : void
+    - PlayGameLostSound() : void
+    - PlayEndScreenSound() : void
+    - SetLoser() : void
+    - SetWinner() : void
+    - PlayClickSound() : void
+    - PlayClickSound(strings : List<string>) : void
+    - PlayClickSound(str : string) : void
+    - PlayClickSound(index : int) : void
+}
+class GameplaySounds {
+    - OnEnable() : void
+    - OnDisable() : void
+    - Start() : void
+    - PlayCorrectSound(message : string) : void
+    - PlayIncorrectSound(message : string) : void
+    - PlayGameWonSound() : void
+    - PlayGameLostSound() : void
+    - PlayEndScreenSound() : void
+    - SetLoser() : void
+    - SetWinner() : void
+    - PlayClickSound() : void
+    - PlayClickSound(strings : List<string>) : void
+    - PlayClickSound(str : string) : void
+    - PlayClickSound(index : int) : void
+}
+class makes {
+}
+class UserResponses {
+}
+' UserResponses: </summary>
+class for {
+    - OnEnable() : void
+    - OnDisable() : void
+    - Initialize() : void
+    - SettingsEvents_OnSFXVolumeChanged(volume : float) : void
+    - SettingsEvents_OnMusicVolumeChanged(volume : float) : void
+    - SettingsEvents_OnMasterVolumeChanged(volume : float) : void
+    + PlaySFXAtPoint(clip : AudioClip, position : Vector3, delay : float, loop : bool) : void
+    - PlaySFXAtPointDelayed(clip : AudioClip, position : Vector3, delay : float, loop : bool) : IEnumerator
+    + PlayMusic(clip : AudioClip, loop : bool) : void
+}
+class AudioManager {
+    - OnEnable() : void
+    - OnDisable() : void
+    - Initialize() : void
+    - SettingsEvents_OnSFXVolumeChanged(volume : float) : void
+    - SettingsEvents_OnMusicVolumeChanged(volume : float) : void
+    - SettingsEvents_OnMasterVolumeChanged(volume : float) : void
+    + PlaySFXAtPoint(clip : AudioClip, position : Vector3, delay : float, loop : bool) : void
+    - PlaySFXAtPointDelayed(clip : AudioClip, position : Vector3, delay : float, loop : bool) : IEnumerator
+    + PlayMusic(clip : AudioClip, loop : bool) : void
+}
+' AudioManager: </summary>
+class GameController {
+    - OnEnable() : void
+    - OnDisable() : void
+    - Awake() : void
+    - GameEvents_GameStarted() : void
+    - GameEvents_QuizContinued() : void
+    - GameEvents_AnswerSelected(response : List<string>) : void
+    - GameEvents_AnswerSubmitted() : void
+    - LevelSelectionEvents_QuizDataLoaded(selectedQuiz : QuizSO) : void
+    - LevelSelectionsEvents_Initialized(levelSelectionScreen : LevelSelectionScreen) : void
+    - OnGameStarted() : void
+    - OnUpdateProgress() : void
+    - OnGameOver() : void
+    - IsQuizComplete() : bool
+}
+class LevelSelectionPresenter {
+    + Disable() : void
+    - LevelSelectionEvents_ButtonSelected(selectedIndex : int) : void
+    - Initialize() : void
+    - RegisterCallbacks() : void
+    - OnLoadFirstQuiz() : void
+}
+class tracks {
+    + Initialize(quizData : QuizSO) : void
+    + OnScoreQuestion(isCorrect : bool) : void
+    - ResetStreak() : void
+    + IsWinner() : bool
+}
+class ScoreManager {
+    + Initialize(quizData : QuizSO) : void
+    + OnScoreQuestion(isCorrect : bool) : void
+    - ResetStreak() : void
+    + IsWinner() : bool
+}
+' ScoreManager: </summary>
+class to {
+    - Start() : void
+    - OnEnable() : void
+    - OnDisable() : void
+    + Initialize() : void
+    - SetStates() : void
+    - AddLinks() : void
+    - InstantiatePreloadedAssets() : void
+    - SceneEvents_ExitApplication() : void
+}
+class currently {
+    - Start() : void
+    - OnEnable() : void
+    - OnDisable() : void
+    + Initialize() : void
+    - SetStates() : void
+    - AddLinks() : void
+    - InstantiatePreloadedAssets() : void
+    - SceneEvents_ExitApplication() : void
+}
+class SequenceManager {
+    - Start() : void
+    - OnEnable() : void
+    - OnDisable() : void
+    + Initialize() : void
+    - SetStates() : void
+    - AddLinks() : void
+    - InstantiatePreloadedAssets() : void
+    - SceneEvents_ExitApplication() : void
+}
+' SequenceManager: </summary>
+class SettingsPresenter {
+    - OnEnable() : void
+    - OnDisable() : void
+    - Start() : void
+    - Initialize() : void
+    + SettingsEvents_MasterSliderChanged(sliderValue : float) : void
+    + SettingsEvents_SFXSliderChanged(sliderValue : float) : void
+    + SettingsEvents_MusicSliderChanged(sliderValue : float) : void
+    - SettingsEvents_ModelMasterVolumeChanged(volume : float) : void
+    - SettingsEvents_ModelSFXVolumeChanged(volume : float) : void
+    - SettingsEvents_ModelMusicVolumeChanged(volume : float) : void
+}
+' SettingsPresenter: </summary>
+class AudioSettingsSO {
+    - m_AudioMixer : AudioMixer
+    - m_SuccessSound : AudioClip
+    - m_FailSound : AudioClip
+    - m_GameWonSound : AudioClip
+    - m_GameLostSound : AudioClip
+    - m_TapClickSound : AudioClip
+    - OnEnable() : void
+    - OnDisable() : void
+    - SettingsEvents_MasterVolumeChanged(volume : float) : void
+    - SettingsEvents_SFXVolumeChanged(volume : float) : void
+    - SettingsEvents_MusicVolumeChanged(volume : float) : void
+}
+class DescriptionSO {
+    # m_Description : string
+}
+' DescriptionSO: </summary>
+class defines {
+    + IsCorrect : bool
+    + Text : string
+    + FontSize : QuestionFontSize
+    + Text : string
+    + AreAnswersCorrect(providedAnswers : List<string>) : bool
+    + HasMultipleCorrectAnswers() : bool
+    + GetCorrectAnswers() : List<string>
+    + GetIncorrectAnswers() : List<string>
+}
+class QuestionSO {
+    + IsCorrect : bool
+    + Text : string
+    + FontSize : QuestionFontSize
+    + Text : string
+    + AreAnswersCorrect(providedAnswers : List<string>) : bool
+    + HasMultipleCorrectAnswers() : bool
+    + GetCorrectAnswers() : List<string>
+    + GetIncorrectAnswers() : List<string>
+}
+class QuizSO {
+    - m_Title : string
+    - m_Summary : string
+    - m_Objectives : List<string>
+    - m_Icon : Sprite
+    - m_DifficultyLevel : string
+    - m_EstimatedTime : string
+    - m_CorrectAnswersToPass : int
+    - m_Questions : List<QuestionSO>
+    - OnValidate() : void
+}
+class StateMachine {
+    + Stop() : void
+}
+' StateMachine: </summary>
+class provides {
+}
+class Coroutines {
+}
+' Coroutines: </summary>
+class logs {
+    + LogMessage(message : string) : void
+    + LogWarningMessage(message : string) : void
+    + LogErrorMessage(message : string) : void
+    - LogMessage(message : string, logType : LogType) : void
+    + LogFormat(format : string, object[] : params) : void
+    + LogWarningFormat(format : string, object[] : params) : void
+    + LogErrorFormat(format : string, object[] : params) : void
+    - LogFormat(format : string, logType : LogType, object[] : params) : void
+}
+class DebugLogger {
+    + LogMessage(message : string) : void
+    + LogWarningMessage(message : string) : void
+    + LogErrorMessage(message : string) : void
+    - LogMessage(message : string, logType : LogType) : void
+    + LogFormat(format : string, object[] : params) : void
+    + LogWarningFormat(format : string, object[] : params) : void
+    + LogErrorFormat(format : string, object[] : params) : void
+    - LogFormat(format : string, logType : LogType, object[] : params) : void
+}
+' DebugLogger: </summary>
+class Description {
+    + note : string
+}
+' Description: </summary>
+class DestroyOnLoad {
+    - m_ActiveWithinScene : string
+    - m_ObjectToDestroy : GameObject
+    - m_Debug : bool
+}
+' DestroyOnLoad: </summary>
+class DontDestroyOnLoad {
+    - Start() : void
+}
+' DontDestroyOnLoad: </summary>
+class with {
+}
+class ExtensionMethods {
+}
+' ExtensionMethods: </summary>
+class Vector3 {
+}
+class NullRefChecker {
+    + requiredField : string
+    + optionalField : string
+}
+class OptionalAttribute {
+    + requiredField : string
+    + optionalField : string
+}
+' OptionalAttribute: </summary>
+class MyClass {
+    + requiredField : string
+    + optionalField : string
+}
+class SceneLoader {
+    - m_BootstrapScene : Scene
+    - m_LastLoadedScene : Scene
+    - Start() : void
+    - OnEnable() : void
+    - OnDisable() : void
+    - SceneEvents_LastSceneUnloaded() : void
+    - SceneEvents_SceneIndexLoaded(sceneIndex : int) : void
+    - SceneEvents_LoadSceneByPath(scenePath : string) : void
+    - SceneEvents_UnloadSceneByPath(scenePath : string) : void
+    + LoadSceneByPath(scenePath : string) : void
+    - LoadScene(scenePath : string) : IEnumerator
+    + LoadScene(buildIndex : int) : void
+    + LoadSceneAdditively(buildIndex : int) : void
+    + ReloadScene() : void
+    + LoadNextScene() : void
+    + UnloadLastLoadedScene() : void
+    - UnloadSceneByPath(scenePath : string) : void
+    - LoadAdditiveScene(scenePath : string) : IEnumerator
+    - LoadAdditiveScene(buildIndex : int) : IEnumerator
+    - UnloadLastScene() : IEnumerator
+    - UnloadScene(scene : Scene) : IEnumerator
+}
+' SceneLoader: </summary>
+class Readme {
+    + icon : Texture2D
+    + title : string
+    + sections : Section[]
+    + loadedLayout : bool
+    + heading : string
+    + text : string
+    + linkText : string
+    + url : string
+}
+class Section {
+    + icon : Texture2D
+    + title : string
+    + sections : Section[]
+    + loadedLayout : bool
+    + heading : string
+    + text : string
+    + linkText : string
+    + url : string
+}
+class for <<interface>> {
+}
+class ILink <<interface>> {
+}
+' ILink: </summary>
+class for <<interface>> {
+}
+class IState <<interface>> {
+}
+' IState: </summary>
+class so {
+    + Subscribe : Action<Action> { get; set; }
+    + Unsubscribe : Action<Action> { get; set; }
+    + Validate(IState : out) : bool
+    + OnEventRaised() : void
+    + Enable() : void
+    + Disable() : void
+}
+class ActionWrapper {
+    + Subscribe : Action<Action> { get; set; }
+    + Unsubscribe : Action<Action> { get; set; }
+    + Validate(IState : out) : bool
+    + OnEventRaised() : void
+    + Enable() : void
+    + Disable() : void
+}
+class EventLink {
+    + Subscribe : Action<Action> { get; set; }
+    + Unsubscribe : Action<Action> { get; set; }
+    + Validate(IState : out) : bool
+    + OnEventRaised() : void
+    + Enable() : void
+    + Disable() : void
+}
+' EventLink: </summary>
+class Link {
+    + Validate(IState : out) : bool
+}
+' Link: </summary>
+class that <<abstract>> {
+    + EnableLinks() : void
+    + DisableLinks() : void
+}
+class AbstractState <<abstract>> {
+    + EnableLinks() : void
+    + DisableLinks() : void
+}
+' AbstractState: </summary>
+class DelayState {
+}
+' DelayState: </summary>
+class State {
+}
+' State: </summary>
+class UIManager {
+    - OnEnable() : void
+    - OnDisable() : void
+    - SubscribeToEvents() : void
+    - UnsubscribeFromEvents() : void
+    - UIEvents_SplashScreenShown() : void
+    - SceneEvents_PreloadCompleted() : void
+    + UIEvents_MainMenuShown() : void
+    - UIEvents_SettingsShown() : void
+    - UIEvents_LevelSelectionShown() : void
+    - UIEvents_GameScreenShown() : void
+    - UIEvents_PauseScreenShown() : void
+    - UIEvents_EndScreenShown() : void
+    + UIEvents_ScreenClosed() : void
+    - UIEvents_UrlOpened(link : string) : void
+    - Initialize() : void
+    - RegisterScreens() : void
+    - HideScreens() : void
+    + Show(screen : UIScreen, keepInHistory : bool) : void
+    + Show(screen : UIScreen) : void
+}
+' UIManager: </summary>
+class for {
+    # m_IsTransparent : bool
+    # m_RootElement : VisualElement
+    # m_EventRegistry : EventRegistry
+    # m_DisplayRoutine : Coroutine
+    - ParentElement_TransitionEnd(evt : TransitionEndEvent) : void
+    - ShowWithDelay(delayInSecs : float) : IEnumerator
+    - HideWithDelay(delayInSecs : float) : IEnumerator
+    + HideImmediately() : void
+}
+class UIScreen <<abstract>> {
+    # m_IsTransparent : bool
+    # m_RootElement : VisualElement
+    # m_EventRegistry : EventRegistry
+    # m_DisplayRoutine : Coroutine
+    - ParentElement_TransitionEnd(evt : TransitionEndEvent) : void
+    - ShowWithDelay(delayInSecs : float) : IEnumerator
+    - HideWithDelay(delayInSecs : float) : IEnumerator
+    + HideImmediately() : void
+}
+' UIScreen: </summary>
+class to {
+    # m_IsTransparent : bool
+    # m_RootElement : VisualElement
+    # m_EventRegistry : EventRegistry
+    # m_DisplayRoutine : Coroutine
+    - ParentElement_TransitionEnd(evt : TransitionEndEvent) : void
+    - ShowWithDelay(delayInSecs : float) : IEnumerator
+    - HideWithDelay(delayInSecs : float) : IEnumerator
+    + HideImmediately() : void
+}
+class to {
+    # m_IsTransparent : bool
+    # m_RootElement : VisualElement
+    # m_EventRegistry : EventRegistry
+    # m_DisplayRoutine : Coroutine
+    - ParentElement_TransitionEnd(evt : TransitionEndEvent) : void
+    - ShowWithDelay(delayInSecs : float) : IEnumerator
+    - HideWithDelay(delayInSecs : float) : IEnumerator
+    + HideImmediately() : void
+}
+class m_RootElement {
+    # m_IsTransparent : bool
+    # m_RootElement : VisualElement
+    # m_EventRegistry : EventRegistry
+    # m_DisplayRoutine : Coroutine
+    - ParentElement_TransitionEnd(evt : TransitionEndEvent) : void
+    - ShowWithDelay(delayInSecs : float) : IEnumerator
+    - HideWithDelay(delayInSecs : float) : IEnumerator
+    + HideImmediately() : void
+}
+class to {
+    # m_IsTransparent : bool
+    # m_RootElement : VisualElement
+    # m_EventRegistry : EventRegistry
+    # m_DisplayRoutine : Coroutine
+    - ParentElement_TransitionEnd(evt : TransitionEndEvent) : void
+    - ShowWithDelay(delayInSecs : float) : IEnumerator
+    - HideWithDelay(delayInSecs : float) : IEnumerator
+    + HideImmediately() : void
+}
+class m_RootElement {
+    # m_IsTransparent : bool
+    # m_RootElement : VisualElement
+    # m_EventRegistry : EventRegistry
+    # m_DisplayRoutine : Coroutine
+    - ParentElement_TransitionEnd(evt : TransitionEndEvent) : void
+    - ShowWithDelay(delayInSecs : float) : IEnumerator
+    - HideWithDelay(delayInSecs : float) : IEnumerator
+    + HideImmediately() : void
+}
+class controls {
+    - OnEnable() : void
+    - Update() : void
+    - SetVisualElements() : void
+    - ShowMessage() : void
+}
+class BootloadScreen {
+    - OnEnable() : void
+    - Update() : void
+    - SetVisualElements() : void
+    - ShowMessage() : void
+}
+class handles {
+    - SubscribeToEvents() : void
+    - UnsubscribeFromEvents() : void
+    - UIEvents_GameScreenShown() : void
+    - UIEvents_ScoresTotaled(correctAnswers : int, incorrectAnswers : int, totalQuestions : int) : void
+    - UIEvents_AccuracyCalculated(value : float) : void
+    - UIEvents_QuizTitleShown(title : string) : void
+    - GameEvents_GameWon() : void
+    - GameEvents_LivesExceeded() : void
+    - Reset() : void
+    - SetVisualElements() : void
+    - RegisterCallbacks() : void
+    - ShowScores(correctAnswers : int, incorrectAnswers : int, totalQuestions : int) : void
+    - ShowPassFail(value : float) : void
+}
+class EndScreen {
+    - SubscribeToEvents() : void
+    - UnsubscribeFromEvents() : void
+    - UIEvents_GameScreenShown() : void
+    - UIEvents_ScoresTotaled(correctAnswers : int, incorrectAnswers : int, totalQuestions : int) : void
+    - UIEvents_AccuracyCalculated(value : float) : void
+    - UIEvents_QuizTitleShown(title : string) : void
+    - GameEvents_GameWon() : void
+    - GameEvents_LivesExceeded() : void
+    - Reset() : void
+    - SetVisualElements() : void
+    - RegisterCallbacks() : void
+    - ShowScores(correctAnswers : int, incorrectAnswers : int, totalQuestions : int) : void
+    - ShowPassFail(value : float) : void
+}
+' EndScreen: </summary>
+class private {
+    - SubscribeToEvents() : void
+    - UnsubscribeFromEvents() : void
+    - UIEvents_GameScreenShown() : void
+    - UIEvents_ScoresTotaled(correctAnswers : int, incorrectAnswers : int, totalQuestions : int) : void
+    - UIEvents_AccuracyCalculated(value : float) : void
+    - UIEvents_QuizTitleShown(title : string) : void
+    - GameEvents_GameWon() : void
+    - GameEvents_LivesExceeded() : void
+    - Reset() : void
+    - SetVisualElements() : void
+    - RegisterCallbacks() : void
+    - ShowScores(correctAnswers : int, incorrectAnswers : int, totalQuestions : int) : void
+    - ShowPassFail(value : float) : void
+}
+class set {
+}
+class initializes {
+}
+class GameScreen {
+}
+' GameScreen: </summary>
+class LevelSelectionScreen {
+    - LevelSelectionEvents_QuizDataLoaded(quizData : QuizSO) : void
+    - SetVisualElements() : void
+    - ResetQuizData() : void
+    - LoadQuizData(quizData : QuizSO) : void
+    + SetupNavigationBar(numberOfButtons : int) : void
+    + SetupTooltips(tooltips : string[]) : void
+}
+' LevelSelectionScreen: </summary>
+class adds {
+    - SetVisualElements() : void
+    - RegisterCallbacks() : void
+    - ShowButtonContainer(index : int) : void
+    - EnterMenuHandler(evt : MouseEnterEvent) : void
+    - ExitMenuHandler(evt : MouseLeaveEvent) : void
+    - OpenURL(button : Button) : void
+    - LoadScenePath(scenePath : string) : void
+    - LoadSceneByIndex(sceneIndex : int) : void
+}
+class MainMenuScreen {
+    - SetVisualElements() : void
+    - RegisterCallbacks() : void
+    - ShowButtonContainer(index : int) : void
+    - EnterMenuHandler(evt : MouseEnterEvent) : void
+    - ExitMenuHandler(evt : MouseLeaveEvent) : void
+    - OpenURL(button : Button) : void
+    - LoadScenePath(scenePath : string) : void
+    - LoadSceneByIndex(sceneIndex : int) : void
+}
+' MainMenuScreen: </summary>
+class PauseScreen {
+}
+' PauseScreen: </summary>
+class SettingsScreen {
+    - SubscribeToEvents() : void
+    - UnsubscribeFromEvents() : void
+    - SetVisualElements() : void
+    - RegisterCallbacks() : void
+    - MasterVolumeChangeHandler(newValue : float) : void
+    - SFXVolumeChangeHandler(newValue : float) : void
+    - MusicVolumeChangeHandler(newValue : float) : void
+    - MasterVolumeSetHandler(volume : float) : void
+    - SFXVolumeSetHandler(volume : float) : void
+    - MusicVolumeSetHandler(volume : float) : void
+    - CloseWindow() : void
+}
+' SettingsScreen: </summary>
+class SplashScreen {
+    - SubscribeToEvents() : void
+    - UnsubscribeFromEvents() : void
+    - SceneEvents_LoadProgressUpdated(value : float) : void
+    - SceneEvents_PreloadCompleted() : void
+}
+' SplashScreen: </summary>
+class StartScreen {
+}
+' StartScreen: </summary>
+class MenuButtonSO {
+}
+class that {
+    + Dispose() : void
+}
+class EventRegistry {
+    + Dispose() : void
+}
+' EventRegistry: </summary>
+class NavigationBar {
+    + Initialize(rootElement : VisualElement, numberOfButtons : int, resourceToLoad : string, useSquareButtons : bool) : void
+    + SetupButtons(numberOfButtons : int, resourceToLoad : string, icon : Sprite) : void
+    + AssignTooltipTextToButtons(tooltips : string[]) : void
+    + InstantiateButton(name : string, icon : Sprite) : void
+    + SetButtonLabelText(button : Button, labelText : string) : void
+    + SetButtonLabelTextAtIndex(index : int, name : string) : void
+    + SetButtonIcon(button : Button, icon : Sprite) : void
+    + SetButtonIconAtIndex(index : int, icon : Sprite) : void
+    + SetButtonTooltip(button : Button, tooltip : string) : void
+    - RemovePlaceHolders() : void
+    + HighlightButton(buttonIndex : int) : void
+    - UnhighlightButtons() : void
+    - MakeSquare(button : Button, referenceElement : VisualElement) : void
+}
+class to {
+    + Initialize(rootElement : VisualElement, numberOfButtons : int, resourceToLoad : string, useSquareButtons : bool) : void
+    + SetupButtons(numberOfButtons : int, resourceToLoad : string, icon : Sprite) : void
+    + AssignTooltipTextToButtons(tooltips : string[]) : void
+    + InstantiateButton(name : string, icon : Sprite) : void
+    + SetButtonLabelText(button : Button, labelText : string) : void
+    + SetButtonLabelTextAtIndex(index : int, name : string) : void
+    + SetButtonIcon(button : Button, icon : Sprite) : void
+    + SetButtonIconAtIndex(index : int, icon : Sprite) : void
+    + SetButtonTooltip(button : Button, tooltip : string) : void
+    - RemovePlaceHolders() : void
+    + HighlightButton(buttonIndex : int) : void
+    - UnhighlightButtons() : void
+    - MakeSquare(button : Button, referenceElement : VisualElement) : void
+}
+class for {
+}
+class to {
+}
+class TextStyles {
+}
+' TextStyles: </summary>
+class names {
+}
+class TitleFloatEffect {
+}
+' TitleFloatEffect: </summary>
+class TooltipView {
+    - m_TooltipView : TooltipView
+    - m_Root : VisualElement
+    + ShowTooltip(evt : MouseEnterEvent, tooltipText : string) : void
+    + HideTooltip() : void
+    - ClampToScreen(element : VisualElement, targetPosition : Vector2) : Vector2
+    - OnMouseEnter(evt : MouseEnterEvent) : void
+    - OnMouseLeave(evt : MouseLeaveEvent) : void
+    - InitializeTooltip() : void
+    + AssignTooltipToElement(element : VisualElement, tooltipText : string) : void
+}
+' TooltipView: </summary>
+class for {
+    - m_TooltipView : TooltipView
+    - m_Root : VisualElement
+    + ShowTooltip(evt : MouseEnterEvent, tooltipText : string) : void
+    + HideTooltip() : void
+    - ClampToScreen(element : VisualElement, targetPosition : Vector2) : Vector2
+    - OnMouseEnter(evt : MouseEnterEvent) : void
+    - OnMouseLeave(evt : MouseLeaveEvent) : void
+    - InitializeTooltip() : void
+    + AssignTooltipToElement(element : VisualElement, tooltipText : string) : void
+}
+class TooltipManipulator {
+    - m_TooltipView : TooltipView
+    - m_Root : VisualElement
+    + ShowTooltip(evt : MouseEnterEvent, tooltipText : string) : void
+    + HideTooltip() : void
+    - ClampToScreen(element : VisualElement, targetPosition : Vector2) : Vector2
+    - OnMouseEnter(evt : MouseEnterEvent) : void
+    - OnMouseLeave(evt : MouseLeaveEvent) : void
+    - InitializeTooltip() : void
+    + AssignTooltipToElement(element : VisualElement, tooltipText : string) : void
+}
+' TooltipManipulator: </summary>
+class TooltipController {
+    - m_TooltipView : TooltipView
+    - m_Root : VisualElement
+    + ShowTooltip(evt : MouseEnterEvent, tooltipText : string) : void
+    + HideTooltip() : void
+    - ClampToScreen(element : VisualElement, targetPosition : Vector2) : Vector2
+    - OnMouseEnter(evt : MouseEnterEvent) : void
+    - OnMouseLeave(evt : MouseLeaveEvent) : void
+    - InitializeTooltip() : void
+    + AssignTooltipToElement(element : VisualElement, tooltipText : string) : void
+}
+' TooltipController: </summary>
+class ReadmeEditor {
+}
+class manages {
+    - GameEvents_LivesSetup(maxLives : int) : void
+    - GameEvents_LivesUpdated(livesUpdated : int) : void
+    + Initialize(parentElement : VisualElement) : void
+    + AssignTooltip(lifeBarTooltip : string) : void
+    - SetupSegments(initialSegments : int) : void
+    - UpdateSegments(remainingSegments : int) : void
+    + Dispose() : void
+}
+class manipulations {
+    - GameEvents_LivesSetup(maxLives : int) : void
+    - GameEvents_LivesUpdated(livesUpdated : int) : void
+    + Initialize(parentElement : VisualElement) : void
+    + AssignTooltip(lifeBarTooltip : string) : void
+    - SetupSegments(initialSegments : int) : void
+    - UpdateSegments(remainingSegments : int) : void
+    + Dispose() : void
+}
+class LifeBarDisplay {
+    - GameEvents_LivesSetup(maxLives : int) : void
+    - GameEvents_LivesUpdated(livesUpdated : int) : void
+    + Initialize(parentElement : VisualElement) : void
+    + AssignTooltip(lifeBarTooltip : string) : void
+    - SetupSegments(initialSegments : int) : void
+    - UpdateSegments(remainingSegments : int) : void
+    + Dispose() : void
+}
+' LifeBarDisplay: </summary>
+class MessageDisplay {
+    - SubscribeToEvents() : void
+    - UnsubscribeFromEvents() : void
+    - UIEvents_GameScreenShown() : void
+    - GameEvents_AnswerSelected(selection : List<string>) : void
+    - UIEvents_ResponsesDeselected() : void
+    - GameEvents_QuizCompleted() : void
+    + Initialize(parentElement : VisualElement) : void
+    - SetVisualElements() : void
+    - RegisterCallbacks() : void
+    + Dispose() : void
+    - SubmitButtonClickHandler(evt : ClickEvent) : void
+    - ContinueButtonClickHandler(evt : ClickEvent) : void
+    - GameEvents_QuestionUpdated(questionData : QuestionSO) : void
+    - GameEvents_IncorrectlyAnswered(message : string) : void
+    - GameEvents_CorrectlyAnswered(message : string) : void
+    - EnableSubmitButton(state : bool) : void
+    - EnableContinueButton(state : bool) : void
+    - ShowResultText(text : string) : void
+    - ShowFeedback(isCorrect : bool, message : string) : void
+    - HideResultText() : void
+    - HideFeedback() : void
+    - Reset() : void
+}
+class is {
+    - SubscribeToEvents() : void
+    - UnsubscribeFromEvents() : void
+    - UIEvents_GameScreenShown() : void
+    - GameEvents_AnswerSelected(selection : List<string>) : void
+    - UIEvents_ResponsesDeselected() : void
+    - GameEvents_QuizCompleted() : void
+    + Initialize(parentElement : VisualElement) : void
+    - SetVisualElements() : void
+    - RegisterCallbacks() : void
+    + Dispose() : void
+    - SubmitButtonClickHandler(evt : ClickEvent) : void
+    - ContinueButtonClickHandler(evt : ClickEvent) : void
+    - GameEvents_QuestionUpdated(questionData : QuestionSO) : void
+    - GameEvents_IncorrectlyAnswered(message : string) : void
+    - GameEvents_CorrectlyAnswered(message : string) : void
+    - EnableSubmitButton(state : bool) : void
+    - EnableContinueButton(state : bool) : void
+    - ShowResultText(text : string) : void
+    - ShowFeedback(isCorrect : bool, message : string) : void
+    - HideResultText() : void
+    - HideFeedback() : void
+    - Reset() : void
+}
+class controls {
+    - SubscribeEvents() : void
+    - UnsubscribeEvents() : void
+    + Initialize(parentElement : VisualElement) : void
+    + Dispose() : void
+    - SetVisualElements() : void
+    - SetTooltips() : void
+    - RegisterCallbacks() : void
+    - UIEvents_GameScreenShown() : void
+    - GameEvents_StreakSnapped() : void
+    - GameEvents_StreakActivated(count : int) : void
+    - UIEvents_ProgressBarUpdated(newValue : float) : void
+    - GameEvents_LivesSetup(livesMax : int) : void
+    - GameEvents_LivesUpdated(livesLeft : int) : void
+    - AnimateProgress(newValue : float) : IEnumerator
+    - ResetStreak() : void
+    - ActivateStreak(count : int) : void
+}
+class ProgressDisplay {
+    - SubscribeEvents() : void
+    - UnsubscribeEvents() : void
+    + Initialize(parentElement : VisualElement) : void
+    + Dispose() : void
+    - SetVisualElements() : void
+    - SetTooltips() : void
+    - RegisterCallbacks() : void
+    - UIEvents_GameScreenShown() : void
+    - GameEvents_StreakSnapped() : void
+    - GameEvents_StreakActivated(count : int) : void
+    - UIEvents_ProgressBarUpdated(newValue : float) : void
+    - GameEvents_LivesSetup(livesMax : int) : void
+    - GameEvents_LivesUpdated(livesLeft : int) : void
+    - AnimateProgress(newValue : float) : IEnumerator
+    - ResetStreak() : void
+    - ActivateStreak(count : int) : void
+}
+' ProgressDisplay: </summary>
+class QuestionDisplay {
+    + Initialize(parentElement : VisualElement) : void
+    - SubscribeEvents() : void
+    + Dispose() : void
+    - GameEvents_TotalQuestionsSetup(maxQuestions : int) : void
+    - GameEvents_QuestionUpdated(questionData : QuestionSO) : void
+    - UIEvents_GameScreenShown() : void
+    - GameEvents_IndexUpdated(currentQuestionIndex : int) : void
+    - ShowQuestionData(questionData : QuestionSO) : void
+    - ShowText(questionData : QuestionSO) : void
+    - ShowImage(questionData : QuestionSO) : void
+}
+' QuestionDisplay: </summary>
+class string {
+    + Initialize(parentElement : VisualElement) : void
+    - SubscribeEvents() : void
+    + Dispose() : void
+    - GameEvents_TotalQuestionsSetup(maxQuestions : int) : void
+    - GameEvents_QuestionUpdated(questionData : QuestionSO) : void
+    - UIEvents_GameScreenShown() : void
+    - GameEvents_IndexUpdated(currentQuestionIndex : int) : void
+    - ShowQuestionData(questionData : QuestionSO) : void
+    - ShowText(questionData : QuestionSO) : void
+    - ShowImage(questionData : QuestionSO) : void
+}
+class ResponseDisplay {
+    - SubscribeEvents() : void
+    - UnsubscribeEvents() : void
+    + Dispose() : void
+    - GameEvents_QuestionUpdated(questionData : QuestionSO) : void
+    - GameEvents_CorrectlyAnswered(s : string) : void
+    - GameEvents_IncorrectlyAnswered(s : string) : void
+    - GameEvents_CorrectButtonHighlighted(correctAnswers : List<string>) : void
+    - GameEvents_IncorrectButtonHighlighted(incorrectAnswers : List<string>) : void
+    + Initialize(parentElement : VisualElement) : void
+    - HidePlaceholders() : void
+    - SetVisualElements() : void
+    - RegisterCallbacks() : void
+    - UnregisterCallbacks() : void
+    - ResponseButtonClicked(evt : ClickEvent) : void
+    - ResetPanel() : void
+    - ResetInstructions() : void
+    - ShowAnswers(shuffledAnswers : List<Answer>) : void
+    - ShuffleAnswers(questionData : QuestionSO) : List<Answer>
+    - EnableResponseButtons(state : bool) : void
+    - DisableResponseButtons() : void
+    - SelectSingleButton(clickedButton : Button) : void
+    - ToggleButton(clickedButton : Button) : void
+    - ClearSelection() : void
+    - ConvertSelectionsToAnswers(indices : List<int>) : List<string>
+    - ShowChoices() : void
+    - ConvertSelectionToChoiceText(buttonIndices : List<int>) : string
+}
+' ResponseDisplay: </summary>
+class names {
+    - SubscribeEvents() : void
+    - UnsubscribeEvents() : void
+    + Dispose() : void
+    - GameEvents_QuestionUpdated(questionData : QuestionSO) : void
+    - GameEvents_CorrectlyAnswered(s : string) : void
+    - GameEvents_IncorrectlyAnswered(s : string) : void
+    - GameEvents_CorrectButtonHighlighted(correctAnswers : List<string>) : void
+    - GameEvents_IncorrectButtonHighlighted(incorrectAnswers : List<string>) : void
+    + Initialize(parentElement : VisualElement) : void
+    - HidePlaceholders() : void
+    - SetVisualElements() : void
+    - RegisterCallbacks() : void
+    - UnregisterCallbacks() : void
+    - ResponseButtonClicked(evt : ClickEvent) : void
+    - ResetPanel() : void
+    - ResetInstructions() : void
+    - ShowAnswers(shuffledAnswers : List<Answer>) : void
+    - ShuffleAnswers(questionData : QuestionSO) : List<Answer>
+    - EnableResponseButtons(state : bool) : void
+    - DisableResponseButtons() : void
+    - SelectSingleButton(clickedButton : Button) : void
+    - ToggleButton(clickedButton : Button) : void
+    - ClearSelection() : void
+    - ConvertSelectionsToAnswers(indices : List<int>) : List<string>
+    - ShowChoices() : void
+    - ConvertSelectionToChoiceText(buttonIndices : List<int>) : string
+}
+class ResponseHighlighter {
+    + ClearHighlight() : void
+    + HighlightAllCorrectAnswers(correctAnswers : List<string>) : void
+    + HighlightAllIncorrectAnswers(incorrectAnswers : List<string>) : void
+}
+' ResponseHighlighter: </summary>
+class for {
+    + ClearHighlight() : void
+    + HighlightAllCorrectAnswers(correctAnswers : List<string>) : void
+    + HighlightAllIncorrectAnswers(incorrectAnswers : List<string>) : void
+}
+class for {
+    + ClearHighlight() : void
+    + HighlightAllCorrectAnswers(correctAnswers : List<string>) : void
+    + HighlightAllIncorrectAnswers(incorrectAnswers : List<string>) : void
+}
+EditorWindow <|-- QuestionImporterWindow
+Editor <|-- QuestionSOEditor
+MonoBehaviour <|-- GameplaySounds
+MonoBehaviour <|-- AudioManager
+MonoBehaviour <|-- GameController
+MonoBehaviour <|-- ScoreManager
+MonoBehaviour <|-- SequenceManager
+MonoBehaviour <|-- SettingsPresenter
+DescriptionSO <|-- AudioSettingsSO
+ScriptableObject <|-- DescriptionSO
+ScriptableObject <|-- QuestionSO
+ScriptableObject <|-- QuizSO
+MonoBehaviour <|-- DebugLogger
+MonoBehaviour <|-- Description
+MonoBehaviour <|-- DestroyOnLoad
+MonoBehaviour <|-- DontDestroyOnLoad
+PropertyAttribute <|-- OptionalAttribute
+MonoBehaviour <|-- MyClass
+MonoBehaviour <|-- SceneLoader
+ScriptableObject <|-- Readme
+ILink <|-- EventLink
+ILink <|-- Link
+IState <|-- AbstractState
+AbstractState <|-- DelayState
+AbstractState <|-- State
+MonoBehaviour <|-- UIManager
+MonoBehaviour <|-- BootloadScreen
+UIScreen <|-- EndScreen
+UIScreen <|-- GameScreen
+UIScreen <|-- LevelSelectionScreen
+UIScreen <|-- MainMenuScreen
+UIScreen <|-- PauseScreen
+UIScreen <|-- SettingsScreen
+UIScreen <|-- SplashScreen
+UIScreen <|-- StartScreen
+ScriptableObject <|-- MenuButtonSO
+IDisposable <|-- EventRegistry
+MonoBehaviour <|-- TitleFloatEffect
+VisualElement <|-- TooltipView
+MouseManipulator <|-- TooltipManipulator
+Editor <|-- ReadmeEditor
+IDisposable <|-- LifeBarDisplay
+IDisposable <|-- MessageDisplay
+IDisposable <|-- ProgressDisplay
+IDisposable <|-- QuestionDisplay
+IDisposable <|-- ResponseDisplay
+@enduml
