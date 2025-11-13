@@ -4,6 +4,8 @@ using System;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks.CompilerServices;
+using UnityEngine.UI;
 
 namespace Quiz
 {
@@ -44,9 +46,18 @@ namespace Quiz
         {
             if (selectedIndex >= 0 && selectedIndex < m_Quizzes.Length)
             {
-                LevelSelectionEvents.QuizDataLoaded?.Invoke(m_Quizzes[selectedIndex]);
-                m_LevelSelectionScreen.NavigationBar.HighlightButton(selectedIndex);
+                ButtonSelectedAsync(selectedIndex).Forget();
             }
+        }
+
+        private async UniTaskVoid ButtonSelectedAsync(int selectedIndex)
+        {
+            List<Question> questions = await QuizRepository.Instance.GetQuizQuestions(m_Quizzes[selectedIndex].Id);
+            List<QuestionSO> questionSOs = ConvertQuestionToSO(questions);
+            m_Quizzes[selectedIndex].InitializeQuestions(questionSOs);
+            Debug.Log($"{m_Quizzes[selectedIndex].Questions[0].QuestionText}");
+            LevelSelectionEvents.QuizDataLoaded?.Invoke(m_Quizzes[selectedIndex]);
+            m_LevelSelectionScreen.NavigationBar.HighlightButton(selectedIndex);
         }
 
         // Methods
@@ -61,19 +72,19 @@ namespace Quiz
             Sprite icon = Resources.Load<Sprite>("QuizIcon");
             if (quizzes != null)
             {
-                var quizSOs = ConvertModelToSO(quizzes, icon);
+                var quizSOs = ConvertQuizToSO(quizzes, icon);
                 Initialize(quizSOs);
                 LevelSelectionEvents.ButtonSelected += LevelSelectionEvents_ButtonSelected;
             }
             else
             {
-                List<QuizPack> packs = await QuizRepository.Instance.FetchQuizPackList(5);
+                List<QuizPack> packs = await QuizRepository.Instance.GetQuizPackList(5);
 
-                var quizSOs = ConvertModelToSO(packs, icon);
+                var quizSOs = ConvertQuizToSO(packs, icon);
                 Initialize(quizSOs);
                 LevelSelectionEvents.ButtonSelected += LevelSelectionEvents_ButtonSelected;
-            }            
-            
+            }
+
         }
         private void Initialize(List<QuizSO> quizSOs)
         {
@@ -121,7 +132,7 @@ namespace Quiz
             }
         }
 
-        private List<QuizSO> ConvertModelToSO(List<QuizPack> quizPacks, Sprite icon)
+        private List<QuizSO> ConvertQuizToSO(List<QuizPack> quizPacks, Sprite icon)
         {
             List<QuizSO> quizSOs = new();
             foreach (var pack in quizPacks)
@@ -133,6 +144,27 @@ namespace Quiz
                 quizSOs.Add(quizSO);
             }
             return quizSOs;
+        }
+
+        private List<QuestionSO> ConvertQuestionToSO(List<Question> questions)
+        {
+            List<QuestionSO> questionSOs = new();
+            foreach (var question in questions)
+            {
+                var questionSO = ScriptableObject.CreateInstance<QuestionSO>();
+                List<Answer> answers = new();
+                foreach (var answer in question.Answers)
+                {
+                    Answer ans;
+                    ans.IsCorrect = answer.IsCorrect;
+                    ans.Text = answer.AnswerText;
+                    answers.Add(ans);
+                }
+                QuestionText questionText = new QuestionText{FontSize = QuestionFontSize.Medium, Text = question.QuestionText};
+                questionSO.Initialize(new(){questionText}, "", true, answers, question.CorrectFeedback, question.IncorrectFeedback);
+                questionSOs.Add(questionSO);
+            }
+            return questionSOs;
         }
     }
 }
