@@ -259,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8602281562583695954, guid: c06a7823af133454ab06afa60696f01d, type: 3}
       propertyPath: m_PreloadedAssets.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8602281562583695954, guid: c06a7823af133454ab06afa60696f01d, type: 3}
       propertyPath: 'm_PreloadedAssets.Array.data[5]'
@@ -269,6 +269,10 @@ PrefabInstance:
       propertyPath: 'm_PreloadedAssets.Array.data[6]'
       value: 
       objectReference: {fileID: 6710777850414973409, guid: cd14d78ec089b134a95ef99c59cb74e6, type: 3}
+    - target: {fileID: 8602281562583695954, guid: c06a7823af133454ab06afa60696f01d, type: 3}
+      propertyPath: 'm_PreloadedAssets.Array.data[7]'
+      value: 
+      objectReference: {fileID: 9034640030586700399, guid: 169f9fa572a9682478e2703e6641b5fa, type: 3}
     - target: {fileID: 8602281562583695955, guid: c06a7823af133454ab06afa60696f01d, type: 3}
       propertyPath: m_RootOrder
       value: 0

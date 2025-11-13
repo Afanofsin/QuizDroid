@@ -2,6 +2,8 @@
 using UnityEngine;
 using System;
 using System.Linq;
+using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Quiz
 {
@@ -25,8 +27,7 @@ namespace Quiz
         {
             m_LevelSelectionScreen = levelSelectionScreen ?? throw new ArgumentNullException(nameof(levelSelectionScreen));
 
-            LevelSelectionEvents.ButtonSelected += LevelSelectionEvents_ButtonSelected;
-            Initialize();
+            InitializeAsync().Forget();
         }
 
         // Event unsubscriptions
@@ -52,6 +53,11 @@ namespace Quiz
 
         // Sets up the LevelSelectionScreen and NavigationBar. Assigns actions to each
         // button n the NavigationBar.
+        private async UniTaskVoid InitializeAsync()
+        {
+            Initialize();
+            LevelSelectionEvents.ButtonSelected += LevelSelectionEvents_ButtonSelected;
+        }
         private void Initialize()
         {
             // Load the ScriptableObjects from the project

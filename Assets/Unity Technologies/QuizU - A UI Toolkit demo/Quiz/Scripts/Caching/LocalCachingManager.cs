@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class LocalCachingManager : MonoBehaviour
 {
-    public LocalCachingManager Instance { get; set; }
+    public static LocalCachingManager Instance { get; private set; }
     private Profile _cachedprofile;
     private const string PROFILE_FILE = "user_profile";
     private Dictionary<int, QuizPack> _cachedQuizzes = new();
@@ -20,8 +20,8 @@ public class LocalCachingManager : MonoBehaviour
         Instance = this;
     }
 
-    // Get cached profile, if not fetch from Supabase
-    public async UniTask<Profile> GetProfile()
+    // Get cached profile
+    public Profile GetProfile()
     {
         if (_cachedprofile != null)
         {
@@ -30,21 +30,12 @@ public class LocalCachingManager : MonoBehaviour
 
         _cachedprofile = JsonStorage.Load<Profile>(PROFILE_FILE);
 
-        if (_cachedprofile == null)
-        {
-            _cachedprofile = await SupabaseService.Instance.GetProfile();
-        }
-
         return _cachedprofile;
     }
 
     // Update profile data
-    public async void UpdateProfile(Profile profile)
+    public void UpdateProfile(Profile profile)
     {
-        var update = await SupabaseService.Instance.UpdateProfile(profile);
-        if (update == false)
-            return;
-
         _cachedprofile = profile;
         JsonStorage.Save<Profile>(PROFILE_FILE, profile);
     }

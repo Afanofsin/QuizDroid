@@ -16,7 +16,7 @@ public class SupabaseService : MonoBehaviour
     public UnityAuthListener Listener = null!;
     public const string SUPABASE_URL = "https://ogyyytbeikgroamiuvvj.supabase.co";
     public const string PUBLIC_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9neXl5dGJlaWtncm9hbWl1dnZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyOTg5MDEsImV4cCI6MjA3NTg3NDkwMX0.8O68a24RomFxX_OSlTqa2UCQPWkQYmMTgIYFRWsL0Yw";
-    private Client _supabase;
+    public Client client { get; private set; }
     private readonly NetworkStatus _networkStatus = new ();
 
     void Awake()
@@ -30,19 +30,19 @@ public class SupabaseService : MonoBehaviour
     }
     public async void Start()
     {
-        if (_supabase == null)
+        if (client == null)
         {
             SupabaseOptions options = new();
 			options.AutoRefreshToken = true;
 
-            _supabase = new Client(SUPABASE_URL, PUBLIC_KEY, options);
+            client = new Client(SUPABASE_URL, PUBLIC_KEY, options);
 
-            _networkStatus.Client = (Supabase.Gotrue.Client)_supabase.Auth;
+            _networkStatus.Client = (Supabase.Gotrue.Client)client.Auth;
 
-            _supabase.Auth.SetPersistence(new UnitySession());
-            _supabase.Auth.AddStateChangedListener(Listener.SessionListener);
+            client.Auth.SetPersistence(new UnitySession());
+            client.Auth.AddStateChangedListener(Listener.SessionListener);
 
-            await _supabase.InitializeAsync();
+            await client.InitializeAsync();
         }
     }
 
@@ -52,7 +52,7 @@ public class SupabaseService : MonoBehaviour
         
         try
         {
-            Session signUp = await _supabase.Auth.SignUp(email, password).AsUniTask();
+            Session signUp = await client.Auth.SignUp(email, password).AsUniTask();
 
             if (signUp == null || signUp.User == null)
             {
@@ -75,7 +75,7 @@ public class SupabaseService : MonoBehaviour
 
         try
         {
-            Session signIn = await _supabase.Auth.SignInWithPassword(email, password).AsUniTask();
+            Session signIn = await client.Auth.SignInWithPassword(email, password).AsUniTask();
 
             if (signIn == null || signIn.User == null)
             {
@@ -95,9 +95,9 @@ public class SupabaseService : MonoBehaviour
 
     public async UniTask<Profile> GetProfile()
     {
-        var user = _supabase.Auth.CurrentUser;
+        var user = client.Auth.CurrentUser;
         Debug.Log($"{user.Id}");
-        var result = await _supabase.From<Profile>()
+        var result = await client.From<Profile>()
                     .Where(p => p.Id == user.Id)
                     .Get();
         Profile profile = result.Models[0];
@@ -108,7 +108,7 @@ public class SupabaseService : MonoBehaviour
     {
         try
         {
-            await _supabase.From<Profile>()
+            await client.From<Profile>()
                 .Update(profile);
             return true;
         }
@@ -121,13 +121,13 @@ public class SupabaseService : MonoBehaviour
 
     public async UniTask LogOut()
     {
-        await _supabase.Auth.SignOut().AsUniTask();
+        await client.Auth.SignOut().AsUniTask();
         Debug.Log($"User Signed Out");
     }
 
     private void OnApplicationQuit()
     {       
-	    _supabase?.Auth.Shutdown();
-	    _supabase = null;
+	    client?.Auth.Shutdown();
+	    client = null;
     }
 }
