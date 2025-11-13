@@ -133,5 +133,22 @@ namespace Quiz
             return incorrectAnswers;
         }
 
+        public void Initialize(
+            List<QuestionText> questionTexts,
+            string skills,
+            bool shuffle,
+            List<Answer> answers,
+            string feedbackCorrect,
+            string feedbackIncorrect
+        )
+        {
+            m_QuestionText = questionTexts;
+            m_Skills = skills;
+            m_ShuffleAnswers = shuffle;
+            m_Answers = answers;
+            m_FeedbackCorrect = feedbackCorrect;
+            m_FeedbackIncorrect = feedbackIncorrect;
+        }
+
     }
 }

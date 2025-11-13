@@ -9,6 +9,7 @@ using Supabase.Gotrue.Exceptions;
 using Client = Supabase.Client;
 using Supabase;
 using JetBrains.Annotations;
+using System.Linq;
 
 public class SupabaseService : MonoBehaviour
 {
@@ -100,7 +101,7 @@ public class SupabaseService : MonoBehaviour
         var result = await client.From<Profile>()
                     .Where(p => p.Id == user.Id)
                     .Get();
-        Profile profile = result.Models[0];
+        Profile profile = result.Models.FirstOrDefault();
         return profile;
     }
     

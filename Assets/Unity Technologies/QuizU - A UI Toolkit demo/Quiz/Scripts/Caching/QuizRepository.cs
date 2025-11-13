@@ -27,8 +27,6 @@ public class QuizRepository : MonoBehaviour
             foreach (var model in response.Models)
             {
                 quizdata.Add(model);
-                QuizSO quizfile = new QuizSO();
-                Debug.Log($"{model.Title}");
             }
             return quizdata;
         }

@@ -55,13 +55,31 @@ namespace Quiz
         // button n the NavigationBar.
         private async UniTaskVoid InitializeAsync()
         {
-            Initialize();
-            LevelSelectionEvents.ButtonSelected += LevelSelectionEvents_ButtonSelected;
+            await UniTask.WaitUntil(() => LocalCachingManager.Instance != null);
+
+            List<QuizPack> quizzes = LocalCachingManager.Instance.GetQuizPackList();
+            Sprite icon = Resources.Load<Sprite>("QuizIcon");
+            if (quizzes != null)
+            {
+                var quizSOs = ConvertModelToSO(quizzes, icon);
+                Initialize(quizSOs);
+                LevelSelectionEvents.ButtonSelected += LevelSelectionEvents_ButtonSelected;
+            }
+            else
+            {
+                List<QuizPack> packs = await QuizRepository.Instance.FetchQuizPackList(5);
+
+                var quizSOs = ConvertModelToSO(packs, icon);
+                Initialize(quizSOs);
+                LevelSelectionEvents.ButtonSelected += LevelSelectionEvents_ButtonSelected;
+            }            
+            
         }
-        private void Initialize()
+        private void Initialize(List<QuizSO> quizSOs)
         {
             // Load the ScriptableObjects from the project
-            m_Quizzes = Resources.LoadAll<QuizSO>("Quizzes");
+            //m_Quizzes = Resources.LoadAll<QuizSO>("Quizzes");
+            m_Quizzes = quizSOs.ToArray();
 
             m_LevelSelectionScreen.SetupNavigationBar(m_Quizzes.Length);
 
@@ -101,6 +119,20 @@ namespace Quiz
                 LevelSelectionEvents.QuizDataLoaded?.Invoke(m_Quizzes[0]);
                 m_LevelSelectionScreen.NavigationBar.HighlightButton(0);
             }
+        }
+
+        private List<QuizSO> ConvertModelToSO(List<QuizPack> quizPacks, Sprite icon)
+        {
+            List<QuizSO> quizSOs = new();
+            foreach (var pack in quizPacks)
+            {
+                var quizSO = ScriptableObject.CreateInstance<QuizSO>();
+                quizSO.Initialize(pack.Id, pack.Title, pack.Summary,
+                                pack.DifficultyLevel, pack.EstimatedTime, icon,
+                                null);
+                quizSOs.Add(quizSO);
+            }
+            return quizSOs;
         }
     }
 }

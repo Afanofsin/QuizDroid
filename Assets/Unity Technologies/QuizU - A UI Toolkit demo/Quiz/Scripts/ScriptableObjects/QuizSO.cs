@@ -30,6 +30,7 @@ namespace Quiz
         [Tooltip("Questions that make up the quiz")]
         [SerializeField] private List<QuestionSO> m_Questions;
 
+        public int Id { get; private set; }
         public string Title { get => m_Title; set => m_Title = value; }
         public string Summary => m_Summary;
         public string Objectives => string.Join("\n", m_Objectives); // Concatenates individual objectives
@@ -48,6 +49,31 @@ namespace Quiz
             {
                 m_Objectives[i] = m_Objectives[i].Replace('*', '•');
             }
+        }
+
+        public void Initialize(
+            int id,
+            string title,
+            string summary,
+            string difficulty,
+            string estimatedTime,
+            Sprite icon,
+            List<QuestionSO> questions)
+        {
+            Id = id;
+            m_Title = title;
+            m_Summary = summary;
+            m_Objectives = new List<string>{""};
+            m_DifficultyLevel = difficulty;
+            m_EstimatedTime = estimatedTime;
+            m_Icon = icon;
+            m_Questions = questions;
+        }
+
+        public void InitializeQuestions(List<QuestionSO> questions)
+        {
+            m_Questions = questions;
+            m_CorrectAnswersToPass = questions.Count;
         }
     }
 }

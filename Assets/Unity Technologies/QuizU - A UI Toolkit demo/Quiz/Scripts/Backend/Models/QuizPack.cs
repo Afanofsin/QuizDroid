@@ -12,11 +12,11 @@ public class QuizPack : BaseModel
     [Column("title")]
     public string Title { get; set; }
     [Column("difficulty")]
-    public string Difficulty { get; set; }
+    public string DifficultyLevel { get; set; }
     [Column("question_count")]
-    public int? Question_Count { get; set; }
+    public int? TotalQuestions { get; set; }
     [Column("summary")]
     public string Summary { get; set; }
     [Column("estimated_time")]
-    public string Time { get; set; }
+    public string EstimatedTime { get; set; }
 }

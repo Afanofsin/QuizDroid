@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -53,11 +54,26 @@ public class LocalCachingManager : MonoBehaviour
             _cachedQuizzes[quizId] = quiz;
             return quiz;
         }
+        return null;
+    }
+
+    public List<QuizPack> GetQuizPackList()
+    {
+        List<QuizPack> packs = _cachedQuizzes.Values.ToList();
+        if (packs.Count != 0)
+        {
+            return packs;
+        }
         else
         {
-            // TODO: ADD SUPABASE FUNCTIONALITY TO HANDLE QUIZ FETCH
-            return quiz;
+            return null;
         }
+
+    }
+
+    public void CacheQuizPack(int quizId, QuizPack quiz)
+    {
+        _cachedQuizzes.Add(quizId, quiz);
     }
 
     public void ClearCache()
