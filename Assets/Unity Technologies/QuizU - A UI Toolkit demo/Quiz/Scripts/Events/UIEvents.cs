@@ -68,8 +68,8 @@ namespace Quiz
         // Show ratio of correct to total answers (i.e. "4 out of 5")
         public static Action<string> ScoreMessageShown;
 
-        // Show correct answer/incorrect answer/total questions
-        public static Action<int, int, int> ScoresTotaled;
+        // Show quizID/correct answer/incorrect answer/total questions
+        public static Action<int, int, int, int> ScoresTotaled;
 
         // Show text description of the main menu button
         public static Action<string> MenuDescriptionShown;

@@ -97,7 +97,7 @@ namespace Quiz
             UIEvents.MainMenuShown?.Invoke();
             UniTask.Void(async () =>
             {
-                await SupabaseService.Instance.GetProfile();
+                await UserDataRepository.Instance.LoadUserProfile();
             });
         }
     }

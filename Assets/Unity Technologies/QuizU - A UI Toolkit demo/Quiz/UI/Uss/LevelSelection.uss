@@ -5,7 +5,7 @@
     border-right-color: rgb(255, 255, 255);
     border-top-color: rgb(255, 255, 255);
     border-bottom-color: rgb(255, 255, 255);
-    -unity-font-definition: url('project://database/Assets/_ThirdParty/Fonts/Roboto/Roboto-Medium%20SDF.asset?fileID=11400000&guid=db5974fdd47364381a7edc91a9df9b2f&type=2#Roboto-Medium SDF');
+    -unity-font-definition: url("project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Fonts/Roboto/Roboto-Medium%20SDF.asset?fileID=11400000&guid=db5974fdd47364381a7edc91a9df9b2f&type=2#Roboto-Medium SDF");
     text-align: left;
     border-left-width: 5px;
     border-right-width: 5px;
@@ -56,7 +56,7 @@
 
 .play-button {
     width: 20%;
-    -unity-font-definition: url('project://database/Assets/_ThirdParty/Fonts/Roboto/Roboto-Black%20SDF.asset?fileID=11400000&guid=e74ebc05ab3564fb187648ced4e2c0fa&type=2#Roboto-Black SDF');
+    -unity-font-definition: url("project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Fonts/Roboto/Roboto-Black%20SDF.asset?fileID=11400000&guid=e74ebc05ab3564fb187648ced4e2c0fa&type=2#Roboto-Black SDF");
     font-size: 40px;
     background-color: rgb(255, 125, 0);
     color: rgb(255, 255, 255);
@@ -98,4 +98,39 @@
 
 .play-button:active {
     color: rgb(255, 208, 0);
+}
+
+.unity-base-text-field__input {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    width: auto;
+}
+
+.unity-base-popup-field__text {
+    font-size: 14px;
+    -unity-font-definition: url("project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/UnityDefaultRuntimeTheme%20-%20Copy.tss?fileID=2230732570650464555&guid=2fc13db092e69e643b65923e141da18f&type=3#NotInter-Regular");
+    -unity-font-style: normal;
+    -unity-text-align: upper-center;
+}
+
+.unity-base-popup-field__input {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: rgb(255, 255, 255);
+    border-left-color: rgba(0, 0, 0, 0.55);
+    border-right-color: rgba(0, 0, 0, 0.55);
+    border-top-color: rgba(0, 0, 0, 0.55);
+    border-bottom-color: rgba(0, 0, 0, 0.55);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
 }

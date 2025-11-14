@@ -21,6 +21,11 @@ public class LocalCachingManager : MonoBehaviour
         Instance = this;
     }
 
+    public void CreateLocalProfile(Profile profile)
+    {
+        JsonStorage.Save<Profile>(PROFILE_FILE, profile);
+    }
+
     // Get cached profile
     public Profile GetProfile()
     {

@@ -22,6 +22,9 @@
                     <ui:Button text="PLAY" display-tooltip-when-elided="true" name="game__start-button" class="play-button" style="position: absolute; right: 0; width: 30%; height: 100%;" />
                 </ui:VisualElement>
             </ui:VisualElement>
+            <ui:TextField placeholder-text="filler text" value="Search QuizPacks..." name="quiz-search-field" style="position: absolute; top: 5%; left: 5%; width: 15%; flex-direction: column;">
+                <ui:DropdownField choices="All" index="0" name="quiz-category-select" />
+            </ui:TextField>
         </ui:VisualElement>
         <ui:Label text="Level Selection" display-tooltip-when-elided="true" name="screen-label" class="screen-label" />
         <ui:Button text="◀BACK" display-tooltip-when-elided="true" name="back-button" class="back-button" style="left: 0; width: 15%; height: 12%;" />

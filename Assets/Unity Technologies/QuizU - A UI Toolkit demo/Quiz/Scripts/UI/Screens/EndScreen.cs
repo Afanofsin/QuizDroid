@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -68,9 +69,9 @@ namespace Quiz
             Reset();
         }
 
-        private void UIEvents_ScoresTotaled(int correctAnswers, int incorrectAnswers, int totalQuestions)
+        private void UIEvents_ScoresTotaled(int quizid, int correctAnswers, int incorrectAnswers, int totalQuestions)
         {
-            ShowScores(correctAnswers, incorrectAnswers, totalQuestions);
+            ShowScores(quizid, correctAnswers, incorrectAnswers, totalQuestions);
         }
 
         private void UIEvents_AccuracyCalculated(float value)
@@ -130,7 +131,7 @@ namespace Quiz
             m_EventRegistry.RegisterCallback<ClickEvent>(m_RetryButton, evt => GameEvents.GameStarted());
         }
 
-        private void ShowScores(int correctAnswers, int incorrectAnswers, int totalQuestions)
+        private void ShowScores(int quizId, int correctAnswers, int incorrectAnswers, int totalQuestions)
         {
             m_CorrectScore.text = correctAnswers.ToString();
             m_IncorrectScore.text = incorrectAnswers.ToString();
@@ -138,6 +139,20 @@ namespace Quiz
 
             int incompleteScore = totalQuestions - correctAnswers - incorrectAnswers;
             m_IncompleteScore.text = incompleteScore.ToString();
+
+            UpdatePlayerStats(quizId, correctAnswers, incorrectAnswers, totalQuestions).Forget();
+        }
+
+        private async UniTaskVoid UpdatePlayerStats(int quizId, int correctAnswers, int incorrectAnswers, int totalQuestions)
+        {
+            await QuizRepository.Instance.SaveQuizStats(quizId, correctAnswers, incorrectAnswers, totalQuestions);
+            
+            if(!m_LivesExceeded && m_IsWinner)
+            {
+                Profile profile = LocalCachingManager.Instance.GetProfile();
+                profile.Xp += 80;
+                await UserDataRepository.Instance.UpdateUserProfile(profile);
+            }
         }
 
         // Display the end game statistics, including pass/fail status

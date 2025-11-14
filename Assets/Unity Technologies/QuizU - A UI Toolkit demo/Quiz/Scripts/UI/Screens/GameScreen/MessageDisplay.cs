@@ -175,14 +175,14 @@ namespace Quiz
         // Show the results in the text panel in footer
         private void GameEvents_IncorrectlyAnswered(string message)
         {
-            ShowResultText("Incorrect");
+            //ShowResultText("Incorrect");
             ShowFeedback(false, message);
         }
 
         // Show the results in the text panel in footer
         private void GameEvents_CorrectlyAnswered(string message)
         {
-            ShowResultText("Correct");
+            //ShowResultText("Correct");
             ShowFeedback(true, message);
         }
 
@@ -216,11 +216,11 @@ namespace Quiz
         // Shows feedback text message with correct/incorrect styling
         private void ShowFeedback(bool isCorrect, string message)
         {
-            m_FeedbackPanel.ClearClassList();
-            m_FeedbackText.ClearClassList();
+            //m_FeedbackPanel.ClearClassList();
+            //m_FeedbackText.ClearClassList();
             EnableContinueButton(true);
 
-            if (isCorrect)
+            /*if (isCorrect)
             {
                 m_FeedbackPanel.AddToClassList(k_FeedbackCorrectClassName);
                 m_FeedbackText.AddToClassList(k_FeedbackCorrectClassName);
@@ -231,7 +231,7 @@ namespace Quiz
                 m_FeedbackText.AddToClassList(k_FeedbackIncorrectClassName);
             }
 
-            m_FeedbackText.text = message;
+            m_FeedbackText.text = message;*/
         }
 
         // Hide Incorrect or Correct text

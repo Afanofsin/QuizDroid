@@ -17,7 +17,7 @@ namespace Quiz
         [SerializeField] ScoreManager m_ScoreManager;
         [Tooltip("Log debug messages at the console")]
         [SerializeField] bool m_Debug;
-
+        [SerializeField] bool m_LivesVisible;
         LevelSelectionPresenter m_LevelSelectionPresenter;
         // The current active question
         QuestionSO m_ActiveQuestion;
@@ -126,8 +126,11 @@ namespace Quiz
                 GameEvents.IncorrectButtonsHighlighted?.Invoke(userIncorrect);
 
                 // If we still have lives left, notify the LifeBar
-                if (m_ScoreManager.LivesLeft >= 0)
-                    GameEvents.LivesUpdated?.Invoke(m_ScoreManager.LivesLeft);
+                if (m_LivesVisible)
+                {
+                    if (m_ScoreManager.LivesLeft >= 0)
+                        GameEvents.LivesUpdated?.Invoke(m_ScoreManager.LivesLeft);
+                }
             }
 
             GameEvents.CorrectButtonsHighlighted?.Invoke(m_ActiveQuestion.GetCorrectAnswers());
@@ -203,7 +206,7 @@ namespace Quiz
                 // Send quiz name, accuracy score, and pass/fail message via UIEvents
                 UIEvents.QuizTitleShown?.Invoke(m_QuizData.Title);
                 UIEvents.AccuracyCalculated?.Invoke(m_ScoreManager.Accurracy * 100);
-                UIEvents.ScoresTotaled?.Invoke(m_ScoreManager.CorrectAnswers, m_ScoreManager.IncorrectAnswers,
+                UIEvents.ScoresTotaled?.Invoke(m_QuizData.Id, m_ScoreManager.CorrectAnswers, m_ScoreManager.IncorrectAnswers,
                     m_ScoreManager.TotalQuestions);
 
             }
@@ -221,8 +224,11 @@ namespace Quiz
             // Have we used the last life?
             if (m_ScoreManager.LivesLeft == 0)
             {
-                GameEvents.LivesExceeded?.Invoke();
-                return true;
+                if (m_LivesVisible)
+                {
+                    GameEvents.LivesExceeded?.Invoke();
+                    return true;
+                }
             }
 
             return false;

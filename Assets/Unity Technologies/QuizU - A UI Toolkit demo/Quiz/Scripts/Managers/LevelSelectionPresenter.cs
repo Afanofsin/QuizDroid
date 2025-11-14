@@ -88,8 +88,6 @@ namespace Quiz
         }
         private void Initialize(List<QuizSO> quizSOs)
         {
-            // Load the ScriptableObjects from the project
-            //m_Quizzes = Resources.LoadAll<QuizSO>("Quizzes");
             m_Quizzes = quizSOs.ToArray();
 
             m_LevelSelectionScreen.SetupNavigationBar(m_Quizzes.Length);

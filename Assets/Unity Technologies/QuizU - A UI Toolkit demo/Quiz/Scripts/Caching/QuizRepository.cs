@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.CompilerServices;
 using Quiz;
 using UnityEngine;
 
@@ -63,5 +64,21 @@ public class QuizRepository : MonoBehaviour
                             .ToList();
         }
         return questions;
+    }
+
+    public async UniTask SaveQuizStats(int quizId, int correct, int incorrect, int total)
+    {
+        var stats = new QuizStats
+        {
+            UserId = SupabaseService.Instance.client.Auth.CurrentUser.Id,
+            QuizPackId = quizId,
+            Correct = correct,
+            Incorrect = incorrect,
+            Total = total
+        };
+
+        await SupabaseService.Instance.client
+                .From<QuizStats>()
+                .Upsert(stats);
     }
 }

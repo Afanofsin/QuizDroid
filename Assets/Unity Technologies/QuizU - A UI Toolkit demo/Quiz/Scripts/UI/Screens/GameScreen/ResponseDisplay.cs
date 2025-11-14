@@ -100,13 +100,13 @@ namespace Quiz
         // Highlight the correct response buttons
         private void GameEvents_CorrectButtonHighlighted(List<string> correctAnswers)
         {
-            m_Highlighter.HighlightAllCorrectAnswers(correctAnswers);
+            //m_Highlighter.HighlightAllCorrectAnswers(correctAnswers);
         }
 
         // Highlight user responses that are incorrect
         private void GameEvents_IncorrectButtonHighlighted(List<string> incorrectAnswers)
         {
-            m_Highlighter.HighlightAllIncorrectAnswers(incorrectAnswers);
+            //m_Highlighter.HighlightAllIncorrectAnswers(incorrectAnswers);
         }
 
         // Methods

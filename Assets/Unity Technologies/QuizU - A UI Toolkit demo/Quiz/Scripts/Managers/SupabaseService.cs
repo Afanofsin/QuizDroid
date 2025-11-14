@@ -60,6 +60,8 @@ public class SupabaseService : MonoBehaviour
                 SupabaseEvents.OnRegistrationFail?.Invoke("Registration Failed.");
                 return;
             }
+            
+            await UserDataRepository.Instance.CreateUser(signUp.User);
             Debug.Log($"Registration success. User ID: {signUp.User.Id}");
         }
         catch (Exception exception)
@@ -84,6 +86,7 @@ public class SupabaseService : MonoBehaviour
                 return;
             }
 
+            await UserDataRepository.Instance.LoadUserProfile();
             Debug.Log($"Login success. User ID: {signIn.User.Id}");
         }
         catch (Exception exception)
