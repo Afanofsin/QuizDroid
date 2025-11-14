@@ -9,4 +9,5 @@ public static class SupabaseEvents
     public static Action<string> OnLoginFail;
     public static Action<string> OnRegistrationFail;
     public static Action OnLogout;
+    public static Action OnProfileUpdate;
 }

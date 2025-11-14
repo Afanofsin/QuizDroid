@@ -1,7 +1,7 @@
 .score-number {
     -unity-text-align: middle-right;
     flex-basis: 15%;
-    -unity-font-definition: url('project://database/Assets/_ThirdParty/Fonts/Roboto/Roboto-Black%20SDF.asset?fileID=11400000&guid=e74ebc05ab3564fb187648ced4e2c0fa&type=2#Roboto-Black SDF');
+    -unity-font-definition: url("project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Fonts/Roboto/Roboto-Black%20SDF.asset?fileID=11400000&guid=e74ebc05ab3564fb187648ced4e2c0fa&type=2#Roboto-Black SDF");
     font-size: 50px;
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px 2px rgba(111, 111, 111, 0.38);
@@ -11,7 +11,40 @@
     flex-basis: 75%;
     -unity-text-align: middle-left;
     font-size: 45px;
-    -unity-font-definition: url('project://database/Assets/_ThirdParty/Fonts/Roboto/Roboto-Medium%20SDF.asset?fileID=11400000&guid=db5974fdd47364381a7edc91a9df9b2f&type=2#Roboto-Medium SDF');
+    -unity-font-definition: url("project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Fonts/Roboto/Roboto-Medium%20SDF.asset?fileID=11400000&guid=db5974fdd47364381a7edc91a9df9b2f&type=2#Roboto-Medium SDF");
     margin-left: 12%;
     color: rgb(255, 255, 255);
+}
+
+.like-button {
+    position: absolute;
+    right: 23%;
+    background-image: url("project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Images/Thumb-Up@4x.png?fileID=2800000&guid=6de49e76b796ba14c91fb0f79ccc1d48&type=3#Thumb-Up@4x");
+    background-color: rgba(46, 139, 87, 0);
+    -unity-background-image-tint-color: rgb(46, 139, 87);
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    width: 5%;
+    height: 8%;
+    background-size: 100% 100%;
+    border-left-color: rgba(149, 149, 149, 0);
+    border-right-color: rgba(149, 149, 149, 0);
+    border-top-color: rgba(149, 149, 149, 0);
+    border-bottom-color: rgba(149, 149, 149, 0);
+}
+
+.dislike-button {
+    position: absolute;
+    right: 15%;
+    background-image: url("project://database/Assets/Unity%20Technologies/QuizU%20-%20A%20UI%20Toolkit%20demo/_ThirdParty/Images/Thumb-Down@4x.png?fileID=2800000&guid=4fb3f101ae7392e49857047eb7fb41ac&type=3#Thumb-Down@4x");
+    background-color: rgba(255, 255, 255, 0);
+    -unity-background-image-tint-color: rgb(220, 49, 50);
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    width: 5%;
+    height: 8%;
+    background-size: 100% 100%;
+    top: auto;
+    border-left-color: rgba(149, 149, 149, 0);
+    border-right-color: rgba(149, 149, 149, 0);
+    border-top-color: rgba(149, 149, 149, 0);
+    border-bottom-color: rgba(149, 149, 149, 0);
 }

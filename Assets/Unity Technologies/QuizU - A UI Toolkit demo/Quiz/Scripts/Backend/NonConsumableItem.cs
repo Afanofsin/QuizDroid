@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Purchasing;
 
@@ -12,6 +13,13 @@ public class NonConsumableItem : IIAPItem
 
     public override void Reward()
     {
-        Debug.Log($"Yay!");
+        GiveReward().Forget();
+    }
+
+    public async UniTaskVoid GiveReward()
+    {
+        Profile profile = await UserDataRepository.Instance.LoadUserProfile();
+        profile.IsAdsActive = false;
+        await UserDataRepository.Instance.UpdateUserProfile(profile);
     }
 }

@@ -19,4 +19,6 @@ public class QuizPack : BaseModel
     public string Summary { get; set; }
     [Column("estimated_time")]
     public string EstimatedTime { get; set; }
+    [Column("rating")]
+    public int Rating {get; set;}
 }

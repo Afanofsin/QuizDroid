@@ -180,6 +180,7 @@ namespace Quiz
         private void UIEvents_ProfileShown()
         {
             Show(m_ProfileScreen);
+            SupabaseEvents.OnProfileUpdate?.Invoke();
         }
 
         private void UIEvents_LevelSelectionShown()

@@ -15,4 +15,6 @@ public class Profile : BaseModel
     public int Currency { get; set; }
     [Column("isPremium")]
     public bool IsPremium { get; set; }
+    [Column("ads_active")]
+    public bool IsAdsActive { get; set;}
 }

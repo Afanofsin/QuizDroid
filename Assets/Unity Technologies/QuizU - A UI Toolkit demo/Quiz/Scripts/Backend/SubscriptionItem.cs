@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Purchasing;
 
@@ -14,6 +15,13 @@ public class SubscriptionItem : IIAPItem
 
     public override void Reward()
     {
-        Debug.Log($"Yay!");
+        GiveReward().Forget();
+    }
+
+    public async UniTaskVoid GiveReward()
+    {
+        Profile profile = await UserDataRepository.Instance.LoadUserProfile();
+        profile.IsPremium = true;
+        await UserDataRepository.Instance.UpdateUserProfile(profile);
     }
 }
