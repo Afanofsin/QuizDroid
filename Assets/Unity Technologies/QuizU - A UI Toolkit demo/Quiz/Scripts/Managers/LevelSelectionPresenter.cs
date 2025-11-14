@@ -55,7 +55,7 @@ namespace Quiz
             List<Question> questions = await QuizRepository.Instance.GetQuizQuestions(m_Quizzes[selectedIndex].Id);
             List<QuestionSO> questionSOs = ConvertQuestionToSO(questions);
             m_Quizzes[selectedIndex].InitializeQuestions(questionSOs);
-            Debug.Log($"{m_Quizzes[selectedIndex].Questions[0].QuestionText}");
+            
             LevelSelectionEvents.QuizDataLoaded?.Invoke(m_Quizzes[selectedIndex]);
             m_LevelSelectionScreen.NavigationBar.HighlightButton(selectedIndex);
         }

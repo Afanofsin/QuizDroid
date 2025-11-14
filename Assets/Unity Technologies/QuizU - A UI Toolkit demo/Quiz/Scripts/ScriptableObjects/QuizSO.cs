@@ -73,7 +73,7 @@ namespace Quiz
         public void InitializeQuestions(List<QuestionSO> questions)
         {
             m_Questions = questions;
-            m_CorrectAnswersToPass = questions.Count;
+            m_CorrectAnswersToPass = questions.Count - 1;
         }
     }
 }
