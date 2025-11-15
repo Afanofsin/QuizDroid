@@ -6,6 +6,7 @@ using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks.CompilerServices;
 using UnityEngine.UI;
+using UnityEngine.SocialPlatforms;
 
 namespace Quiz
 {
@@ -52,10 +53,16 @@ namespace Quiz
 
         private async UniTaskVoid ButtonSelectedAsync(int selectedIndex)
         {
-            List<Question> questions = await QuizRepository.Instance.GetQuizQuestions(m_Quizzes[selectedIndex].Id);
-            List<QuestionSO> questionSOs = ConvertQuestionToSO(questions);
-            m_Quizzes[selectedIndex].InitializeQuestions(questionSOs);
-            
+            var cache = LocalCachingManager.Instance.GetQuizPackSO(selectedIndex);
+            if (cache == null || cache.TotalQuestions == 0)
+            {
+                List<Question> questions = await QuizRepository.Instance.GetQuizQuestions(m_Quizzes[selectedIndex].Id);
+                List<QuestionSO> questionSOs = ConvertQuestionToSO(questions);
+                m_Quizzes[selectedIndex].InitializeQuestions(questionSOs);
+                LocalCachingManager.Instance.CacheQuizPackSO(selectedIndex, m_Quizzes[selectedIndex]);
+                Debug.Log($"I am fetching Quiz from server");
+            }
+
             LevelSelectionEvents.QuizDataLoaded?.Invoke(m_Quizzes[selectedIndex]);
             m_LevelSelectionScreen.NavigationBar.HighlightButton(selectedIndex);
         }
@@ -158,8 +165,8 @@ namespace Quiz
                     ans.Text = answer.AnswerText;
                     answers.Add(ans);
                 }
-                QuestionText questionText = new QuestionText{FontSize = QuestionFontSize.Medium, Text = question.QuestionText};
-                questionSO.Initialize(new(){questionText}, "", true, answers, question.CorrectFeedback, question.IncorrectFeedback);
+                QuestionText questionText = new QuestionText { FontSize = QuestionFontSize.Medium, Text = question.QuestionText };
+                questionSO.Initialize(new() { questionText }, "", true, answers, question.CorrectFeedback, question.IncorrectFeedback);
                 questionSOs.Add(questionSO);
             }
             return questionSOs;

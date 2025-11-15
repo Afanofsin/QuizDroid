@@ -1,4 +1,5 @@
-using Demo;
+#if UNITY_EDITOR
+//using Demo;
 using SerializeReferenceEditor.Editor;
 using UnityEditor;
 using UnityEngine;
@@ -23,3 +24,4 @@ namespace Demo.Editor
 		}
 	}
 }
+#endif

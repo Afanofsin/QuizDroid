@@ -77,7 +77,7 @@ namespace Quiz
         // If the quiz is complete, and player has correctly answered the minimum number
         public bool IsWinner()
         {
-            return IsComplete && LivesLeft >= 0;
+            return IsComplete && LivesLeft > 0;
         }
 
     }

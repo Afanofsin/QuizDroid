@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using Quiz;
 using UnityEngine;
 
 public class LocalCachingManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class LocalCachingManager : MonoBehaviour
     private Profile _cachedprofile;
     private const string PROFILE_FILE = "user_profile";
     private Dictionary<int, QuizPack> _cachedQuizzes = new();
+    private Dictionary<int, QuizSO> _cachedQuizzesSO = new();
 
     public void Awake()
     {
@@ -46,17 +48,17 @@ public class LocalCachingManager : MonoBehaviour
         JsonStorage.Save<Profile>(PROFILE_FILE, profile);
     }
 
-    public async UniTask<QuizPack> GetQuizPack(int quizId)
+    public QuizSO GetQuizPackSO(int quizId)
     {
-        if (_cachedQuizzes.TryGetValue(quizId, out QuizPack cached))
+        if (_cachedQuizzesSO.TryGetValue(quizId, out QuizSO cached))
         {
             return cached;
         }
 
-        QuizPack quiz = JsonStorage.Load<QuizPack>($"quiz_{quizId}");
+        QuizSO quiz = JsonStorage.Load<QuizSO>($"quiz_{quizId}_so");
         if (quiz != null)
         {
-            _cachedQuizzes[quizId] = quiz;
+            _cachedQuizzesSO[quizId] = quiz;
             return quiz;
         }
         return null;
@@ -78,7 +80,12 @@ public class LocalCachingManager : MonoBehaviour
 
     public void CacheQuizPack(int quizId, QuizPack quiz)
     {
-        _cachedQuizzes.Add(quizId, quiz);
+        _cachedQuizzes[quizId] = quiz;
+    }
+
+    public void CacheQuizPackSO(int quizId, QuizSO quiz)
+    {
+        _cachedQuizzesSO[quizId] = quiz;
     }
 
     public void ClearCache()
